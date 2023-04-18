@@ -28,7 +28,7 @@ BackEnd
 - MinUkSon
 
 FrontEnd
-- JunSeo
+- JunSeoPark
 
 
 ## Project Introduction
