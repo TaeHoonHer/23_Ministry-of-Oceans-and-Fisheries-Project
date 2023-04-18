@@ -63,3 +63,16 @@ By analyzing user profiles, search histories, and previous recommendation result
 >- A mobile development platform is used to guide the above deep learning operations to fit the mobile device
 >- A push notification is developed to inform the database server and administrators of the data to be stored
 >- Through the collection and learning of domestic and international logistics data, an AI chatbot specializing in maritime logistics is developed
+
+## Expected Effects and Application Fields
+### Key Features
+- Efficient information collection: Easily understand the latest trends and issues in the maritime logistics industry to enable more accurate decision-making.
+
+- Customized news provision: Analyze user preferences and interests to provide personalized news, helping users utilize their time more efficiently.
+
+- Increased competitiveness: Quickly understand the latest trends in the maritime logistics industry and respond accordingly to increase a company's competitiveness.
+
+- Business opportunity discovery: Increased interest in the industry can lead to the discovery of new business opportunities.
+
+### Application Areas
+This project can be applied in companies, research institutes, and universities related to the maritime logistics industry. It can contribute to the development of the industry and assist in making more accurate and timely decisions. Additionally, students and aspiring industry professionals interested in maritime logistics can easily obtain information to improve their knowledge.
