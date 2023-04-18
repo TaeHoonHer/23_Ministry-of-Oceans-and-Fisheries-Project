@@ -29,7 +29,7 @@ BackEnd
 
 FrontEnd
 - JunSeoPark
-
+- wonnie205
 
 ## Project Introduction
 This project aims to use AI technology to analyze and collect the latest news in the field of maritime logistics and develop a personalized recommendation system for users. Through the results of this project, users can easily and quickly access news that they are interested in, and can obtain high-quality information related to maritime logistics from among the various news that is pouring in real-time. Based on this, they can keep up-to-date with the latest trends in the maritime logistics industry.
