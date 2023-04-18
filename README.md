@@ -76,3 +76,14 @@ By analyzing user profiles, search histories, and previous recommendation result
 
 ### Application Areas
 This project can be applied in companies, research institutes, and universities related to the maritime logistics industry. It can contribute to the development of the industry and assist in making more accurate and timely decisions. Additionally, students and aspiring industry professionals interested in maritime logistics can easily obtain information to improve their knowledge.
+
+## Project Introduction
+This project is expected to play an important role in the maritime logistics industry, which has a significant impact on South Korea's trade and economic development. The maritime logistics industry is a crucial industry worldwide, and South Korea actively promotes domestic and international trade activities for economic development. However, the industry is currently facing various challenges, including complex regulations. SOLAS and MARPOL are two representative examples of international maritime conventions. SOLAS contains regulations for ship safety, while MARPOL is a convention for preserving the marine environment, managing waste, and pollutants.
+
+Some examples of the problems in the maritime logistics industry include the difficulty in real-time tracking of ship positions and environmental issues caused by marine pollution. Furthermore, accidents in the maritime logistics industry require sufficient preparation for disaster recovery, which is often inadequate.
+
+These regulations and challenges highlight the importance of collecting and analyzing information on various incidents in the maritime logistics industry. This project will use NLP technology to collect and classify news related to the domestic and international maritime logistics industry. It aims to provide users with easy access to information on regulations and challenges.
+
+This project has various practical applications. For example, professionals in the port industry can use the application to obtain information on the maritime logistics industry, allowing them to make more efficient decisions. Additionally, the application can improve understanding of foreign trade and promote the development of South Korea's trade. Students interested in the maritime logistics industry or news media seeking information on the industry can also use the application.
+
+This project is expected to contribute significantly to the development of South Korea's maritime logistics industry and trade and provide accurate and reliable information to professionals and the public. This project may also propose and develop new technologies for NLP and news analysis, leading to research and publication of new services and technologies.
