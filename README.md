@@ -1,7 +1,5 @@
 # 23_Ministry-of-Oceans-and-Fisheries-Project
 
-23_해상물류 챗봇 프로젝트
-
 ## Project Name
 - Development of AI-based Maritime Logistics Analysis Program
 
