@@ -12,7 +12,7 @@
 >> - If you would like to be in charge of GitLab, please let us know.
 
 > Collaborative Tool Related Issues
->> - We will open a GitHub repository and invite everyone using the GitHub account you provided us with by the end of this week. We plan to use the team space as a page to write development journals individually starting from after the exams
+>> - I will open a GitHub repository and invite everyone using the GitHub account you provided us with by the end of this week. We plan to use the team space as a page to write development journals individually starting from after the exams
 
 > Online Education
 >> - Please refer to the notice titled "Online Education Guide"
