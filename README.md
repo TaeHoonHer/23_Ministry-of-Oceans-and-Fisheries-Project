@@ -104,3 +104,16 @@ One of the problems in the maritime logistics industry is the instability of car
 In the maritime logistics industry, various crimes occur frequently. Crimes such as illegal operations, theft, and robbery cause significant damage to the maritime logistics industry. Reliable information and data are essential for preventing such crimes and tracking down criminals.
 
 Therefore, we have determined that collecting and analyzing accurate and reliable information and data to increase the stability and efficiency of the maritime logistics industry is very important. Using NLP technology and news analysis technology, this chatbot and news integrated application can be used as a solution to solve various problems in the maritime logistics industry and help users obtain accurate and reliable information. Additionally, this can contribute to the development of trade by increasing the stability and efficiency of the maritime logistics industry.
+
+## Applied Technologies
+- Natural Language Processing (NLP): 
+  - Leveraging advanced NLP techniques such as BERT, Word2Vec, GPT-3, and other state-of-the-art models, the system performs sophisticated natural language processing tasks on news articles such as topic modeling, entity recognition, sentiment analysis, summarization, and more. These technologies allow for the extraction of meaningful insights and patterns from large volumes of unstructured text data, enabling the system to provide valuable and actionable information to users
+- Database Management Technology
+  - Utilizing industry-standard database management systems and tools, the system ensures the efficient storage, retrieval, and management of vast amounts of structured and unstructured data such as user profiles, news articles, and other relevant information. The use of SQL and other advanced database management technologies helps to ensure data integrity, scalability, and security
+- Android App Development Technology
+  - The system leverages the latest Android app development technologies and frameworks, such as Android Studio and Java, to create engaging and user-friendly mobile apps that meet the needs and preferences of users. These apps provide intuitive and responsive user interfaces, fast and reliable performance, and seamless integration with other system components
+- Server Development Technology
+  - The system employs advanced server development technologies and frameworks such as Python and Flask to build robust and scalable back-end servers that can handle large volumes of requests from multiple users. These servers are designed to be highly modular and extensible, allowing for easy integration with other system components and third-party services.
+  
+- Cloud Technology
+  - Leveraging cloud-based technologies and services such as AWS, the system ensures the reliable and scalable deployment and operation of its servers and data storage infrastructure. This allows for efficient resource utilization, cost savings, and enhanced data security and privacy. Additionally, the use of cloud technologies enables the system to easily scale up or down its resources based on changing user demand, ensuring optimal system performance and availability at all times.
