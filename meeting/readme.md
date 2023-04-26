@@ -5,7 +5,7 @@
 >> - Time : 19:00
 >> - Attendees : All personnel involved in the project
 
-# Team leader-led meeting - Every Wednesday / 10:30 PM
+## Team leader-led meeting - Every Wednesday / 10:30 PM
 - 05/03
   - Front-End
     - Desired functionalities
