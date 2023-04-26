@@ -1,4 +1,4 @@
-## Meeting
+## Mentor-led meeting
 
 > Mentor-led meeting
 >> - Date : April 26th, 2023
