@@ -8,12 +8,11 @@
 >>    - Discussion on project direction, upcoming meeting schedule, and distribution of responsibilities for each team member.
 
 ## Team leader-led meeting - Every Wednesday / 10:30 PM
-> - Preparation for the meeting
+#### Preparation for the meeting
 >> - 05/03
 >>  - Front-End
 >>    - Desired functionalities
 >>    - Design for the main screen
-
 >>  - Back-End
 >>    - Database and API selection
 >>    - Preferred cloud service (even if it's a paid service)
