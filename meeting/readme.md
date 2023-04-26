@@ -9,11 +9,11 @@
 
 ## Team leader-led meeting - Every Wednesday / 10:30 PM
 #### Preparation for the meeting
->> - 05/03
->>  - Front-End
->>    - Desired functionalities
->>    - Design for the main screen
->>  - Back-End
->>    - Database and API selection
->>    - Preferred cloud service (even if it's a paid service)
->>    - Security measures to be implemented
+> - 05/03
+>  - Front-End
+>    - Desired functionalities
+>    - Design for the main screen
+>  - Back-End
+>    - Database and API selection
+>    - Preferred cloud service (even if it's a paid service)
+>    - Security measures to be implemented
