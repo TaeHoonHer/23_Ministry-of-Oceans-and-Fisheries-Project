@@ -5,7 +5,7 @@
 >> - Time : 19:00
 >> - Attendees : All personnel involved in the project
 >> - Meeting Agenda:
->>    - Discussion on project direction, upcoming meeting schedule, and distribution of responsibilities for each team member.
+>>    - Discussion on project direction, upcoming meeting schedule, and distribution of responsibilities for each team member
 
 ## Team leader-led meeting - Every Wednesday / 10:30 PM
 ### 05/03
