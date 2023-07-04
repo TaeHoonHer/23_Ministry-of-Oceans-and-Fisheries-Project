@@ -23,3 +23,9 @@
 #### Preparation for the meeting
 > - Figma Design
 > - Requirements Definition
+
+## Team leader-led meeting
+### 06/05
+#### Work done
+> - Receive the study materials that everyone has been studying in the form of a report
+> - Write detailed definitions for the requirements definition document
