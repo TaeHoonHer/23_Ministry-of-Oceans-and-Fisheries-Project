@@ -17,3 +17,9 @@
 >    - Database and API selection
 >    - Preferred cloud service (even if it's a paid service)
 >    - Security measures to be implemented
+
+## Team leader-led meeting - Every Wednesday / 10:30 PM
+### 05/10
+#### Preparation for the meeting
+> - Figma Design
+> - Requirements Definition
