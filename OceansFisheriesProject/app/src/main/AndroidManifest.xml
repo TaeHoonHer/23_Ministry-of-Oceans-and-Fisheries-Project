@@ -15,6 +15,7 @@
         <activity
             android:name=".LoginActivity"
             android:exported="false" />
+        <activity android:name=".FirstActivity"></activity>
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -26,6 +27,7 @@
         </activity>
     </application>
 
-    <supports-screens android:largeScreens="true" android:anyDensity="true"></supports-screens>
+
+
 
 </manifest>
