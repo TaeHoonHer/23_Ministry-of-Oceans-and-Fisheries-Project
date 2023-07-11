@@ -6,24 +6,30 @@
     android:layout_height="match_parent"
     tools:context=".LoginActivity">
 
-    <ImageView
-        android:id="@+id/logoImg"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/logintop"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"></ImageView>
+
+        <ImageView
+            android:id="@+id/logoImg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/logintop"
+
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+
+            ></ImageView>
+
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Login"
-        app:layout_constraintTop_toBottomOf="@+id/logoImg"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="20dp"
-        ></TextView>
+        android:text="Login"
+        app:layout_constraintBottom_toBottomOf="@id/idEdittxt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logoImg"
+        app:layout_constraintVertical_bias="0.023"></TextView>
 
     <ImageView
         android:layout_width="34dp"
@@ -40,28 +46,30 @@
         android:id="@+id/idEdittxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="76dp"
-        android:layout_marginTop="404dp"
+
+        android:layout_marginTop="72dp"
         android:background="@drawable/loginedi"
         android:hint="ID"
         android:paddingLeft="35dp"
         android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"></EditText>
+        app:layout_constraintTop_toBottomOf="@+id/logoImg"></EditText>
 
     <EditText
         android:id="@+id/passEdittxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="76dp"
         android:layout_marginTop="32dp"
         android:background="@drawable/loginedi"
         android:hint="PassWord"
+        android:inputType="textPassword"
         android:paddingLeft="35dp"
         android:textSize="20dp"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/idEdittxt"
-        android:inputType="textPassword"
 
         ></EditText>
 
@@ -69,33 +77,45 @@
         android:id="@+id/signInBtn_2"
         android:layout_width="162dp"
         android:layout_height="50dp"
-        android:layout_marginTop="132dp"
+
         android:background="@drawable/signinblack"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.462"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/passEdittxt"></androidx.appcompat.widget.AppCompatButton>
 
-    <CheckBox
-        android:id="@+id/stayCeck"
+        app:layout_constraintBottom_toTopOf="@+id/forgotTxt"
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/checkLin"></androidx.appcompat.widget.AppCompatButton>
+
+    <LinearLayout
+        android:id="@+id/checkLin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Stay logged In"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.213"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/passEdittxt"></CheckBox>
 
-    <CheckBox
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Saved ID"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.072"
-        app:layout_constraintStart_toEndOf="@+id/stayCeck"
-        app:layout_constraintTop_toBottomOf="@+id/passEdittxt"></CheckBox>
+
+        app:layout_constraintHorizontal_bias="0.256"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/passEdittxt">
+
+        <CheckBox
+            android:id="@+id/stayCeck"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:text="Stay logged In"
+
+            ></CheckBox>
+
+        <CheckBox
+            android:id="@+id/saveCeck"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Saved ID"
+
+            tools:layout_editor_absoluteX="255dp"></CheckBox>
+
+
+    </LinearLayout>
 
 
     <TextView
@@ -103,41 +123,44 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
-        android:layout_marginTop="24dp"
         android:text="Forgot Password?"
         android:textSize="18dp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/forgotLin"
         app:layout_constraintEnd_toEndOf="parent"
-
-        app:layout_constraintHorizontal_bias="0.458"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/signInBtn_2"></TextView>
+        app:layout_constraintTop_toBottomOf="@+id/signInBtn_2"></TextView>
 
-    <TextView
-        android:id="@+id/dontAccTxt"
+    <LinearLayout
+        android:id="@+id/forgotLin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
-        android:layout_marginTop="80dp"
-        android:text="Don’t have an account?"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
 
-        app:layout_constraintHorizontal_bias="0.348"
+        app:layout_constraintHorizontal_bias="0.36"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/forgotTxt"></TextView>
+        app:layout_constraintTop_toBottomOf="@id/forgotTxt">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        <TextView
+            android:id="@+id/dontAccTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Don’t have an account?"
 
-        android:layout_marginTop="80dp"
-        android:text="Sign Up"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
+            ></TextView>
 
-        app:layout_constraintHorizontal_bias="0.149"
-        app:layout_constraintStart_toEndOf="@+id/dontAccTxt"
-        app:layout_constraintTop_toBottomOf="@id/forgotTxt"></TextView>
+        <TextView
+            android:id="@+id/signUptxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="Sign Up"
+            android:textStyle="bold"
+
+
+            ></TextView>
+    </LinearLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

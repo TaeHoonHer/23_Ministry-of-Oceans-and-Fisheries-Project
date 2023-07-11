@@ -15,7 +15,8 @@
         android:layout_marginTop="72dp"
         android:background="@drawable/saestream"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"></TextView>
+        app:layout_constraintTop_toTopOf="parent"
+        ></TextView>
 
     <TextView
         android:id="@+id/titleTxt2"
@@ -31,23 +32,26 @@
         android:id="@+id/signInBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="52dp"
-        android:layout_marginTop="484dp"
+
+        android:layout_marginStart="16dp"
+
+        android:layout_marginBottom="44dp"
         android:background="@drawable/whitebtn"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/titleTxt2"></androidx.appcompat.widget.AppCompatButton>
+        app:layout_constraintBottom_toTopOf="@+id/signUpBtn"
+        app:layout_constraintStart_toStartOf="parent"></androidx.appcompat.widget.AppCompatButton>
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/signUpBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="52dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginStart="44dp"
+
+        android:layout_marginBottom="64dp"
         android:background="@drawable/blackbtn"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signInBtn"
-        app:layout_constraintBottom_toBottomOf=""
-        ></androidx.appcompat.widget.AppCompatButton>
+
+        app:layout_constraintBottom_toBottomOf="parent"
+
+        app:layout_constraintStart_toStartOf="parent"></androidx.appcompat.widget.AppCompatButton>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
