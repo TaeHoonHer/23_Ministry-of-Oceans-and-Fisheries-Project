@@ -5,9 +5,9 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/tool"
+
         android:layout_width="20dp"
         android:layout_height="20dp"
         android:layout_marginStart="48dp"
@@ -54,84 +54,52 @@
         app:layout_constraintTop_toTopOf="parent"></androidx.appcompat.widget.AppCompatButton>
 
 
-    <LinearLayout
-        android:id="@+id/txt"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-
-        android:gravity="center"
-
-        app:layout_constraintTop_toBottomOf="@+id/icon"
-        tools:layout_editor_absoluteX="0dp">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="30dp"
-            android:text="Popuar"
-            android:textSize="20dp"
-            android:textStyle="bold"></TextView>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="30dp"
-            android:text="logistics"
-            android:textSize="20dp"
-            android:textStyle="bold"></TextView>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="30dp"
-            android:text="Recent"
-            android:textSize="20dp"
-            android:textStyle="bold"></TextView>
-
-    </LinearLayout>
-
-    <ImageView
-        android:id="@+id/img"
-        android:layout_width="344dp"
-        android:layout_height="247dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginBottom="30dp"
-        android:background="@drawable/rectangle"
-        app:layout_constraintBottom_toTopOf="@+id/latesttxt"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.537"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt"></ImageView>
-
-    <ImageView
-        android:layout_width="114dp"
-        android:layout_height="106dp"
-        android:layout_marginTop="100dp"
-        android:src="@drawable/iconvehicleship"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"></ImageView>
-
     <TextView
-        android:id="@+id/latesttxt"
+        android:id="@+id/scrapTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
-        android:background="@drawable/lastestnews"
-        app:layout_constraintBottom_toTopOf="@+id/recy"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:text="Scrap"
+        android:textColor="@color/blue"
+        android:textSize="30dp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/img"
-        android:layout_marginBottom="20dp"
-        app:layout_constraintVertical_bias="0.234"></TextView>
+        app:layout_constraintTop_toBottomOf="@+id/tool"
+
+        ></TextView>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/iconsmallship"
+        app:layout_constraintStart_toEndOf="@+id/scrapTxt"
+        app:layout_constraintTop_toBottomOf="@+id/icon"></ImageView>
+
+
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        app:layout_constraintTop_toBottomOf="@id/scrapTxt"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintWidth_percent="0.9"
+        android:layout_marginTop="15dp"
+        android:background="@color/sky"
+
+        ></View>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recy"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintBottom_toTopOf="@+id/bottomnav"
-        app:layout_constraintTop_toBottomOf="@+id/latesttxt"
-        tools:layout_editor_absoluteX="-16dp"
+        android:layout_marginTop="30dp"
+        app:layout_constraintBottom_toTopOf="@id/bottomnav"
+        app:layout_constraintTop_toBottomOf="@+id/scrapTxt"
+        app:layout_constraintVertical_bias="0.0"
+        tools:layout_editor_absoluteX="0dp"
         tools:listitem="@layout/item"
         ></androidx.recyclerview.widget.RecyclerView>
 
@@ -146,6 +114,8 @@
         android:background="@color/white"
 
         ></com.google.android.material.bottomnavigation.BottomNavigationView>
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
