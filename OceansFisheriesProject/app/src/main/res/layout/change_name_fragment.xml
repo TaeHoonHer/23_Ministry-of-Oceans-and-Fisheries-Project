@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    >
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/tool"
@@ -52,76 +53,71 @@
         app:layout_constraintTop_toTopOf="parent"></androidx.appcompat.widget.AppCompatButton>
 
 
-    <ImageView
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/mypage"
-        app:layout_constraintTop_toBottomOf="@+id/icon"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="20dp"
+        android:text="NickNmae"
+        android:textColor="@color/blue"
+        android:textSize="25dp"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="30dp"
-        >
-    </ImageView>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/icon"></TextView>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Profile"
-        app:layout_constraintTop_toBottomOf="@+id/icon"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="160dp"
+        android:text="New NickName"
         android:textSize="15dp"
-        ></TextView>
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:layout_width="28dp"
-        android:layout_height="28dp"
-        android:layout_marginTop="44dp"
-        android:layout_marginEnd="64dp"
-        android:background="@drawable/iconsettings_"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bellbtn"></androidx.appcompat.widget.AppCompatButton>
+        app:layout_constraintHorizontal_bias="0.145"
 
-    <TextView
-        android:id="@+id/nametxt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="184dp"
-        android:text="My Name"
-        android:textSize="30dp"
-        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/icon"></TextView>
+
+    <EditText
+        android:id="@+id/nickname_edi"
+        android:layout_width="0dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="192dp"
+        android:background="@drawable/editbar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/icon"
-        android:gravity="center"
-        ></TextView>
+        app:layout_constraintWidth_percent="0.8"
+        android:hint="input new NickName"
+        android:textColorHint="@color/white"
+        android:paddingLeft="10dp"
+        app:layout_constraintTop_toBottomOf="@+id/icon"></EditText>
 
-    <TextView
-        android:id="@+id/arttxt"
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/ok_btn"
+        android:layout_width="195dp"
+        android:layout_height="45dp"
+
+        android:layout_marginTop="148dp"
+        android:background="@drawable/blue_ok_btn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        android:text="OK"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nickname_edi"></androidx.appcompat.widget.AppCompatButton>
+
+    <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="44dp"
-        android:layout_marginTop="56dp"
-        android:text="My Article"
-        android:textSize="20dp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nametxt"></TextView>
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_marginTop="124dp"
+        android:layout_marginEnd="116dp"
+        android:background="@drawable/iconsmallship"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/arttxt"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:padding="10dp"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        tools:listitem="@layout/item"
-
-        ></androidx.recyclerview.widget.RecyclerView>
+        app:layout_constraintTop_toBottomOf="@id/nickname_edi"
+        android:rotation="-10"
+        ></ImageView>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomnav"
@@ -132,10 +128,6 @@
         app:itemIconSize="50dp"
         app:labelVisibilityMode="unlabeled"
         android:background="@color/white"
-
         ></com.google.android.material.bottomnavigation.BottomNavigationView>
-
-
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
