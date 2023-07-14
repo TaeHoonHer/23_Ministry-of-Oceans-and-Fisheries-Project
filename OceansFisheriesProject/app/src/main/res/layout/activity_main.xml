@@ -5,147 +5,170 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <androidx.drawerlayout.widget.DrawerLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/tool"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="28dp"
-        android:background="@drawable/iconmenu_"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        ></androidx.appcompat.widget.Toolbar>
-
-    <LinearLayout
-        android:id="@+id/icon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        app:layout_constraintEnd_toStartOf="@+id/bellbtn"
-        app:layout_constraintHorizontal_bias="0.487"
-        app:layout_constraintStart_toEndOf="@+id/tool"
-        app:layout_constraintTop_toTopOf="parent"
         >
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="5dp"
-            android:background="@drawable/iconcruiseship"></ImageView>
+        <com.google.android.material.navigation.NavigationView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            app:menu="@menu/side_menu"
+            app:headerLayout="@layout/sidebar"
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:background="@drawable/stream"
-
-            ></ImageView>
-    </LinearLayout>
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/bellbtn"
-        android:layout_width="28dp"
-        android:layout_height="28dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="36dp"
-        android:background="@drawable/iconbell_"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"></androidx.appcompat.widget.AppCompatButton>
+            ></com.google.android.material.navigation.NavigationView>
 
 
-    <LinearLayout
-        android:id="@+id/txt"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
 
-        android:gravity="center"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
 
-        app:layout_constraintTop_toBottomOf="@+id/icon"
-        tools:layout_editor_absoluteX="0dp">
+            >
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="30dp"
-            android:text="Popuar"
-            android:textSize="20dp"
-            android:textStyle="bold"></TextView>
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/tool"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginStart="48dp"
+                android:layout_marginTop="28dp"
+                android:background="@drawable/iconmenu_"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                ></androidx.appcompat.widget.Toolbar>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="30dp"
-            android:text="logistics"
-            android:textSize="20dp"
-            android:textStyle="bold"></TextView>
+            <LinearLayout
+                android:id="@+id/icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
+                app:layout_constraintEnd_toStartOf="@+id/bellbtn"
+                app:layout_constraintHorizontal_bias="0.487"
+                app:layout_constraintStart_toEndOf="@+id/tool"
+                app:layout_constraintTop_toTopOf="parent"
+                >
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="30dp"
-            android:text="Recent"
-            android:textSize="20dp"
-            android:textStyle="bold"></TextView>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:background="@drawable/iconcruiseship"></ImageView>
 
-    </LinearLayout>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@drawable/stream"
 
-    <ImageView
-        android:id="@+id/img"
-        android:layout_width="344dp"
-        android:layout_height="247dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginBottom="30dp"
-        android:background="@drawable/rectangle"
-        app:layout_constraintBottom_toTopOf="@+id/latesttxt"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.537"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt"></ImageView>
+                    ></ImageView>
+            </LinearLayout>
 
-    <ImageView
-        android:layout_width="114dp"
-        android:layout_height="106dp"
-        android:layout_marginTop="100dp"
-        android:src="@drawable/iconvehicleship"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"></ImageView>
-
-    <TextView
-        android:id="@+id/latesttxt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
-        android:background="@drawable/lastestnews"
-        app:layout_constraintBottom_toTopOf="@+id/recy"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/img"
-        android:layout_marginBottom="20dp"
-        app:layout_constraintVertical_bias="0.234"></TextView>
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recy"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintBottom_toTopOf="@+id/bottomnav"
-        app:layout_constraintTop_toBottomOf="@+id/latesttxt"
-        tools:layout_editor_absoluteX="-16dp"
-        tools:listitem="@layout/item"
-        ></androidx.recyclerview.widget.RecyclerView>
-
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottomnav"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:menu="@menu/nav_menu"
-        app:itemIconSize="50dp"
-        app:labelVisibilityMode="unlabeled"
-        android:background="@color/white"
-
-        ></com.google.android.material.bottomnavigation.BottomNavigationView>
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/bellbtn"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="36dp"
+                android:background="@drawable/iconbell_"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"></androidx.appcompat.widget.AppCompatButton>
 
 
+            <LinearLayout
+                android:id="@+id/txt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+
+                android:gravity="center"
+
+                app:layout_constraintTop_toBottomOf="@+id/icon"
+                tools:layout_editor_absoluteX="0dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="30dp"
+                    android:text="Popuar"
+                    android:textSize="20dp"
+                    android:textStyle="bold"></TextView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="30dp"
+                    android:text="logistics"
+                    android:textSize="20dp"
+                    android:textStyle="bold"></TextView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="30dp"
+                    android:text="Recent"
+                    android:textSize="20dp"
+                    android:textStyle="bold"></TextView>
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/img"
+                android:layout_width="344dp"
+                android:layout_height="247dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginBottom="30dp"
+                android:background="@drawable/rectangle"
+                app:layout_constraintBottom_toTopOf="@+id/latesttxt"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.537"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt"></ImageView>
+
+            <ImageView
+                android:layout_width="114dp"
+                android:layout_height="106dp"
+                android:layout_marginTop="100dp"
+                android:src="@drawable/iconvehicleship"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"></ImageView>
+
+            <TextView
+                android:id="@+id/latesttxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="36dp"
+                android:background="@drawable/lastestnews"
+                app:layout_constraintBottom_toTopOf="@+id/recy"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/img"
+                android:layout_marginBottom="20dp"
+                app:layout_constraintVertical_bias="0.234"></TextView>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recy"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintBottom_toTopOf="@+id/bottomnav"
+                app:layout_constraintTop_toBottomOf="@+id/latesttxt"
+                tools:layout_editor_absoluteX="-16dp"
+                tools:listitem="@layout/item"
+                ></androidx.recyclerview.widget.RecyclerView>
+
+            <com.google.android.material.bottomnavigation.BottomNavigationView
+                android:id="@+id/bottomnav"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:menu="@menu/nav_menu"
+                app:itemIconSize="50dp"
+                app:labelVisibilityMode="unlabeled"
+                android:background="@color/white"
+
+                ></com.google.android.material.bottomnavigation.BottomNavigationView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.drawerlayout.widget.DrawerLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
