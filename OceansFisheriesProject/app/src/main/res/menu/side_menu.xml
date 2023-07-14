@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/scronews"
+        android:title="스크랩한 뉴스"
+        ></item>
+    <item
+        android:id="@+id/sectionnews"
+        android:title="섹션뉴스"
+        ></item>
+    <item
+        android:id="@+id/thenews"
+        android:title="테마별뉴스"
+        ></item>
+    <item
+        android:id="@+id/engnews"
+        android:title="외국어뉴스"
+        ></item>
+
+
+</menu>

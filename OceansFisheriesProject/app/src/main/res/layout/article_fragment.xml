@@ -39,7 +39,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:background="@drawable/Stream"
+            android:background="@drawable/stream"
             ></ImageView>
     </LinearLayout>
 
@@ -61,8 +61,6 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintBottom_toTopOf="@+id/bottomnav"
-        app:layout_constraintBottom_totopOf="@+id/bottomnav"
-
         app:layout_constraintTop_toBottomOf="@+id/hrview"
         app:layout_constraintVertical_bias="0.0"
         tools:layout_editor_absoluteX="0dp">

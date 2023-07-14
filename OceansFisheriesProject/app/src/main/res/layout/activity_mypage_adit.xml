@@ -37,7 +37,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:background="@drawable/Stream"
+            android:background="@drawable/stream"
             ></ImageView>
     </LinearLayout>
 
@@ -103,7 +103,6 @@
         android:layout_width="0dp"
         android:layout_height="70dp"
         android:layout_marginTop="44dp"
-        android:background="none"
         android:gravity="start|center"
         android:text="NickName"
         app:layout_constraintEnd_toEndOf="parent"
@@ -140,7 +139,6 @@
         android:layout_width="0dp"
         android:layout_height="70dp"
         android:layout_marginTop="4dp"
-        android:background="none"
         android:gravity="start|center"
         android:text="Changing Password"
         app:layout_constraintEnd_toEndOf="parent"
@@ -175,7 +173,6 @@
         android:layout_width="0dp"
         android:layout_height="70dp"
         android:layout_marginTop="4dp"
-        android:background="none"
         android:gravity="start|center"
         android:text="Push Notification"
         app:layout_constraintEnd_toEndOf="parent"
