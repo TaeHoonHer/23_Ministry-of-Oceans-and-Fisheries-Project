@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "501366692675",
+    "project_id": "oceans-fisheries-project",
+    "storage_bucket": "oceans-fisheries-project.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:501366692675:android:8bf09738598003a6a86df6",
+        "android_client_info": {
+          "package_name": "com.example.oceans_fisheries_project"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "501366692675-jkuk124tbii5kg0mbopn9p3l0mgbcdgl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA5Q-ljhLno-zkUSd79Cw3NE-FWms2IcWM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "501366692675-jkuk124tbii5kg0mbopn9p3l0mgbcdgl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
