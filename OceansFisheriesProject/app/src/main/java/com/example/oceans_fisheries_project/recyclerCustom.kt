@@ -35,6 +35,10 @@ class Custom(private val data: ArrayList<Data>): RecyclerView.Adapter<Custom.Cus
 
     override fun onBindViewHolder(holder: CustomViewHolder, position: Int) {
 
+//        val item = data[position]
+//        holder.bind(item)
+
+
 
         //각 아이템에 대한 설정 변경
 
