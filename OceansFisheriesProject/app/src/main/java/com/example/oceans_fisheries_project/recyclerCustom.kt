@@ -1,20 +1,21 @@
 package com.example.oceans_fisheries_project
 
-import android.graphics.drawable.Drawable
-import android.provider.ContactsContract.Data
-import android.service.autofill.UserData
+import android.app.PendingIntent.getActivity
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.oceans_fisheries_project.databinding.ItemBinding
 
-class recyclerCustom(
-    var img :Drawable,
+data class recyclerCustom(
+    var img: Int,
     var title: String,
-    var date : String
+    var date: String
 )
 
-class Custom(private val data: ArrayList<Data>): RecyclerView.Adapter<Custom.CustomViewHolder>(){
+class Custom(private val data: ArrayList<recyclerCustom>): RecyclerView.Adapter<Custom.CustomViewHolder>(){
     private lateinit var binding: ItemBinding
 
     inner class CustomViewHolder(binding: ItemBinding):RecyclerView.ViewHolder(binding.root){
@@ -34,10 +35,18 @@ class Custom(private val data: ArrayList<Data>): RecyclerView.Adapter<Custom.Cus
     }
 
     override fun onBindViewHolder(holder: CustomViewHolder, position: Int) {
+        val item = data[position]
+        holder.bind(item)
 
-//        val item = data[position]
-//        holder.bind(item)
+        val layoutParams = holder.itemView.layoutParams
+        layoutParams.height = 200
+        holder.itemView.requestLayout()
 
+        binding.root.setOnClickListener {
+            Toast.makeText(binding.root.context,"${item.title}",Toast.LENGTH_SHORT).show()
+            var intent = Intent(binding.root.context,ArticleActivity::class.java)
+            startActivity(binding.root.context,intent,null)
+        }
 
 
         //각 아이템에 대한 설정 변경
