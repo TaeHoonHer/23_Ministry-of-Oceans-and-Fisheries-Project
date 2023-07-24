@@ -29,6 +29,7 @@
         ></TextView>
 
     <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/settingbtn"
         android:layout_width="28dp"
         android:layout_height="28dp"
         android:layout_marginTop="10dp"

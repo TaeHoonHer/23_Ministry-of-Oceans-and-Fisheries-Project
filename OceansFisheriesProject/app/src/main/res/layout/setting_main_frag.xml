@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+
+    <androidx.drawerlayout.widget.DrawerLayout
+        android:id="@+id/layout_draw"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        app:headerLayout="@layout/sidebar"
+        app:menu="@menu/side_menu">
+
+        <com.google.android.material.navigation.NavigationView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            app:menu="@menu/side_menu"
+            app:headerLayout="@layout/sidebar"
+
+            ></com.google.android.material.navigation.NavigationView>
+
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            >
+            <androidx.fragment.app.FragmentContainerView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:layout_constraintTop_toTopOf="parent"
+                >
+            </androidx.fragment.app.FragmentContainerView>
+
+
+            <ImageView
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:layout_marginTop="32dp"
+                android:src="@drawable/iconsettings_"
+                app:layout_constraintEnd_toStartOf="@+id/settingtxt"
+                app:layout_constraintHorizontal_bias="0.65"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"></ImageView>
+
+            <TextView
+                android:id="@+id/settingtxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="48dp"
+                android:layout_marginTop="32dp"
+                android:text=" Setting"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"></TextView>
+
+            <ImageView
+                android:id="@+id/userImg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/iconme"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/settingtxt"></ImageView>
+
+            <TextView
+                android:id="@+id/userNameTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="닉네임"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/userImg"></TextView>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="44dp"
+                android:background="@color/sky"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.609"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/userImg"
+
+                app:layout_constraintWidth_percent="0.9"></View>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/option_1btn"
+                android:layout_width="0dp"
+                android:layout_height="70dp"
+                android:layout_marginTop="44dp"
+                android:gravity="start|center"
+                android:background="@color/material_on_background_disabled"
+                android:text="NickName"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/userImg"
+                app:layout_constraintWidth_percent="0.8" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="4dp"
+                android:background="@color/black"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.487"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/option_1btn"
+                android:alpha="0.1"
+                app:layout_constraintWidth_percent="0.9"></View>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="68dp"
+                android:layout_marginEnd="48dp"
+                android:background="@drawable/rightvector"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/userImg"></ImageView>
+
+
+
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/option_2btn"
+                android:layout_width="0dp"
+                android:layout_height="70dp"
+                android:layout_marginTop="4dp"
+                android:gravity="start|center"
+                android:background="@color/material_on_background_disabled"
+                android:text="Changing Password"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/option_1btn"
+                app:layout_constraintWidth_percent="0.8" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="4dp"
+                android:background="@color/black"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.487"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/option_2btn"
+                android:alpha="0.1"
+                app:layout_constraintWidth_percent="0.9"></View>
+
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
+                android:layout_marginEnd="48dp"
+                android:background="@drawable/rightvector"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/option_1btn"></ImageView>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/option_3btn"
+                android:layout_width="0dp"
+                android:layout_height="70dp"
+                android:layout_marginTop="4dp"
+                android:gravity="start|center"
+                android:text="Push Notification"
+                android:background="@color/material_on_background_disabled"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/option_2btn"
+                app:layout_constraintWidth_percent="0.8" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="4dp"
+                android:background="@color/black"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.487"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/option_3btn"
+                android:alpha="0.1"
+                app:layout_constraintWidth_percent="0.9"></View>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
+                android:layout_marginEnd="48dp"
+                android:background="@drawable/rightvector"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/option_2btn"></ImageView>
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.drawerlayout.widget.DrawerLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
