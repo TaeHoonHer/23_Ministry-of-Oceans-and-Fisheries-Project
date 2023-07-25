@@ -16,7 +16,10 @@ class ArticleActivity: AppCompatActivity() {
 
         setContentView(binding.root)
 
-
+        var title = intent.getStringExtra("title")
+        var date = intent.getStringExtra("date")
+        binding.titletxt.text = title
+        binding.datetxt.text = date
 
     }
 }

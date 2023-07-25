@@ -28,13 +28,14 @@ class MainActivity : AppCompatActivity() {
                     .replace(R.id.frag, fragmentMain())
                     .commit()
                 R.id.mypage -> supportFragmentManager.beginTransaction()
-                    .replace(R.id.frag, mypageFragment()).commit()
+                    .replace(R.id.frag, mypageFragment())
+                    .commit()
             }
             true
         }
     }
 
-    fun toolbarClick(v:View){
+    fun toolbarClick(v:View){ //사이드바 오픈
         binding.layoutDraw.openDrawer(GravityCompat.START)
     }
 }
