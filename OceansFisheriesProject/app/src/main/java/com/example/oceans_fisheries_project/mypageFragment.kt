@@ -6,7 +6,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.oceans_fisheries_project.databinding.ActivityMypageBinding
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
+import com.google.firebase.database.ktx.FirebaseDatabaseKtxRegistrar
+import com.google.firebase.ktx.Firebase
 
 class mypageFragment : Fragment() {
     override fun onCreateView(
@@ -17,16 +25,38 @@ class mypageFragment : Fragment() {
 
         val binding = ActivityMypageBinding.inflate(inflater,container,false)
 
-        binding.settingbtn.setOnClickListener {
+        var arr = arrayListOf<recyclerCustom>()
+        binding.settingbtn.setOnClickListener { // 세팅창으로 이동
             var intent = Intent(activity,mypage_ediAcitivity::class.java)
             startActivity(intent)
-
         }
 
+        var databaseReference = FirebaseDatabase.getInstance().getReference() // 파이어베이스 데이터베이스 불러온다
+
+        databaseReference.addListenerForSingleValueEvent(object : ValueEventListener{
+            override fun onDataChange(snapshot: DataSnapshot) {
+                for(childSnapshot in snapshot.children){
+                    var title = childSnapshot.child("title").getValue(String::class.java)
+                    var date = childSnapshot.child("date").getValue(String::class.java)
+
+                    var data = recyclerCustom(R.drawable.mypage,title!!,date!!)
+
+                    arr.add(data)
+                    println(data)
+                }
+
+                var adpater = Custom(arr)
+                binding.mypageRcyc.apply {
+                    layoutManager = LinearLayoutManager(requireContext())
+                    this.adapter = adpater
+                }
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                println(error)
+            }
+        })
         return binding.root
-
-
-
     }
 
 }

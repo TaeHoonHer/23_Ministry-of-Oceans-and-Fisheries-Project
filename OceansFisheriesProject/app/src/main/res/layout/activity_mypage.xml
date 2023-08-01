@@ -65,6 +65,7 @@
         app:layout_constraintTop_toBottomOf="@+id/nametxt"></TextView>
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/mypage_rcyc"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:padding="10dp"
@@ -74,7 +75,6 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/arttxt"
-
         app:layout_constraintVertical_bias="0.0"
         tools:listitem="@layout/item"></androidx.recyclerview.widget.RecyclerView>
 

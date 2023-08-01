@@ -2,12 +2,18 @@ package com.example.oceans_fisheries_project
 
 import android.app.PendingIntent.getActivity
 import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.oceans_fisheries_project.databinding.ItemBinding
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.ktx.Firebase
 
 data class recyclerCustom(
     var img: Int,
@@ -50,12 +56,29 @@ class Custom(private val data: ArrayList<recyclerCustom>): RecyclerView.Adapter<
             startActivity(binding.root.context,intent,null)
         }
 
-
-
-
         //각 아이템에 대한 설정 변경
+        binding.bookmarkbtn.setOnClickListener{
+            addToDatabases(item)
+        }
 
     }
+
+    fun addToDatabases(item: recyclerCustom){
+        val bookmark = FirebaseDatabase.getInstance().getReference()
+        val bookmarkData = hashMapOf(
+            "title" to item.title,
+            "date" to item.date
+        )
+
+        bookmark.push().setValue(bookmarkData)
+            .addOnSuccessListener {
+                println("데이터 저장 성공")
+            }
+            .addOnFailureListener { e->
+                println(e.message)
+            }
+    }
+
 
 
 }

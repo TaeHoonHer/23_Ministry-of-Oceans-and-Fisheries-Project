@@ -19,7 +19,6 @@ class fragmentMain : Fragment() {
         val binding = MainFragmentBinding.inflate(inflater, container, false)
 
 
-
             var arr = arrayListOf( // 임시 데이터
                 recyclerCustom(
                     img = R.drawable.bac,
@@ -43,6 +42,5 @@ class fragmentMain : Fragment() {
         return binding.root
 
         }
-
 
 }

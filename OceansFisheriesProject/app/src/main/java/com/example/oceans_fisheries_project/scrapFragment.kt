@@ -19,8 +19,6 @@ class scrapFragment:Fragment() {
 
         val binding = ScrapFragmentBinding.inflate(inflater,container,false)
 
-
-
         return binding.root
     }
 }
