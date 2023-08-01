@@ -51,9 +51,12 @@ class Custom(private val data: ArrayList<recyclerCustom>): RecyclerView.Adapter<
         }
 
 
+
+
         //각 아이템에 대한 설정 변경
 
     }
 
 
 }
+

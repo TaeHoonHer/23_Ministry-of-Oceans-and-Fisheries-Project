@@ -9,6 +9,8 @@ import com.example.oceans_fisheries_project.databinding.ScrapFragmentBinding
 
 class scrapFragment:Fragment() {
 
+
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -16,6 +18,9 @@ class scrapFragment:Fragment() {
     ): View? {
 
         val binding = ScrapFragmentBinding.inflate(inflater,container,false)
+
+
+
         return binding.root
     }
 }

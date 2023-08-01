@@ -25,13 +25,12 @@ class fragmentMain : Fragment() {
                     img = R.drawable.bac,
                     title = "a",
                     date = "1"
-                )
-            ,    recyclerCustom(
+                ),
+                recyclerCustom(
                     img = R.drawable.bac,
                     title = "b",
                     date = "2"
                 )
-
             )
 
             var adap = Custom(arr)
