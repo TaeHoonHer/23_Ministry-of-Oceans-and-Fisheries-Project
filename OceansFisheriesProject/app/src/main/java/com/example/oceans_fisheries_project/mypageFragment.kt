@@ -48,7 +48,7 @@ class mypageFragment : Fragment() {
                 var adpater = Custom(arr)
                 binding.mypageRcyc.apply {
                     layoutManager = LinearLayoutManager(requireContext())
-                    this.adapter = adpater
+                    adapter = adpater
                 }
             }
 
