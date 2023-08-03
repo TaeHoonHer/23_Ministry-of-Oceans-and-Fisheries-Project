@@ -23,7 +23,6 @@ data class recyclerCustom(
     var title: String,
     var date: String
 )
-
 class Custom(private val data: ArrayList<recyclerCustom>): RecyclerView.Adapter<Custom.CustomViewHolder>(){
     private lateinit var binding: ItemBinding
 
@@ -35,16 +34,13 @@ class Custom(private val data: ArrayList<recyclerCustom>): RecyclerView.Adapter<
             binding.datetxt.text = item.date
         }
     }
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CustomViewHolder {
         binding = ItemBinding.inflate(LayoutInflater.from(parent.context),parent,false)
         return CustomViewHolder(binding)
     }
-
     override fun getItemCount(): Int {
         return data.size
     }
-
     override fun onBindViewHolder(holder: CustomViewHolder, position: Int) {
         val item = data[position]
         holder.bind(item)
@@ -62,32 +58,24 @@ class Custom(private val data: ArrayList<recyclerCustom>): RecyclerView.Adapter<
         }
         binding.bookmarkbtn.setOnClickListener{
             addToDatabases(item)
-            ++btnclickIndex
-
-            if(btnclickIndex == 2){
-                delDatabase(item)
-
-            }
         }
-
     }
-
     fun addToDatabases(item: recyclerCustom){
         val bookmark = FirebaseDatabase.getInstance().getReference()
         val bookmarkData = hashMapOf(
             "title" to item.title,
             "date" to item.date
         )
-
         val database = FirebaseDatabase.getInstance()
         val bookmarksRef = database.getReference()
-
         val query = bookmarksRef.orderByChild("title").equalTo(item.title)
         query.addListenerForSingleValueEvent(object :ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
                 if(snapshot.exists()){
-                    println("데이터 존재")
-
+                    for(snapshot in snapshot.children){
+                        snapshot.ref.removeValue()
+                    }
+                    println("데이터 삭제 성공")
                 }
                 else{
                     bookmark.push().setValue(bookmarkData)
@@ -97,29 +85,12 @@ class Custom(private val data: ArrayList<recyclerCustom>): RecyclerView.Adapter<
                         .addOnFailureListener { e->
                             println(e.message)
                         }
-
                 }
             }
-
             override fun onCancelled(error: DatabaseError) {
                 println(error.message)
             }
-
         })
-
-
-
-
     }
-
-    fun delDatabase(item: recyclerCustom){
-        val database = FirebaseDatabase.getInstance().getReference(item.title)
-        database.removeValue()
-        btnclickIndex = 0
-
-    }
-
-
-
 }
 

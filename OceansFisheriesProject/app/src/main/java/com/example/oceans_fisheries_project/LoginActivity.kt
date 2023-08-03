@@ -9,8 +9,6 @@ import com.example.oceans_fisheries_project.databinding.ActivityLoginBinding
 import com.example.oceans_fisheries_project.databinding.ActivityStartBinding
 import com.google.firebase.auth.FirebaseAuth
 
-//구현해야 할것 체크박스, 하단 텍스트 버튼들
-
 class LoginActivity : AppCompatActivity() {
     lateinit var binding: ActivityLoginBinding
     val uasuth = FirebaseAuth.getInstance()
