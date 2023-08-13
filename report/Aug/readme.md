@@ -53,7 +53,7 @@ Recommender algorithms are systems that propose suitable items based on a user's
 - **Hybrid Methods**
   - This approach combines both Collaborative Filtering and Content-based Filtering.
 
-### sample code
+### Example code
 ``` python
 import numpy as np
 user_item_matrix = np.array([
@@ -63,7 +63,6 @@ user_item_matrix = np.array([
     [2, 5, 0, 0]
 ])
 
-# 아이템간 유사도 계산 (코사인 유사도)
 def cosine_similarity(v1, v2):
     dot_product = np.dot(v1, v2)
     norm_v1 = np.linalg.norm(v1)
@@ -84,7 +83,7 @@ def recommend(user, user_item_matrix):
     return recommended_item
 
 user = 0
-print(f"User {user}에게 추천하는 아이템: {recommend(user, user_item_matrix)}")
+print(f"User {user}에게 추천: {recommend(user, user_item_matrix)}")
 ```
 
 ### Matrix factorization techniques for recommender systems
@@ -92,7 +91,7 @@ print(f"User {user}에게 추천하는 아이템: {recommend(user, user_item_mat
 
 #### First
 - The paper emphasizes the significance of recommender systems and their applications, particularly highlighting the importance of information retrieval and filtering in large datasets
-- The role of recommender systems as a primary tool for personalized information provision is discussed.
+- The role of recommender systems as a primary tool for personalized information provision is discussed
 
 #### Basics of Matrix Factorization
 - The user-item rating matrix is represented as a large matrix with most values missing. The goal is to decompose this matrix into two smaller matrices
@@ -108,7 +107,7 @@ print(f"User {user}에게 추천하는 아이템: {recommend(user, user_item_mat
 - It discusses the advantages and disadvantages of each algorithm and the best practices for specific scenarios
 
 #### Regularization and Overfitting Prevention
-- Matrix factorization can be susceptible to overfitting.
+- Matrix factorization can be susceptible to overfitting
 - The paper introduces various regularization techniques to address this issue
 
 #### Real-world Applications
