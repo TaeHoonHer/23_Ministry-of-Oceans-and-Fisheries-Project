@@ -1,5 +1,5 @@
 # TaeHoon
-## TaeHoon
+## 23/08/06
 Recommender systems are AI technologies that predict and suggest products, services, or content that users might be interested in. They play a crucial role in modern internet-based services, making it easier for users to access more information and products
 
 Relevant Techniques
@@ -39,3 +39,50 @@ Performance Evaluation
 Recommender systems are evaluated using metrics like accuracy, precision, recall, F1 score, etc. A/B testing with real users is also important for assessing user satisfaction
 
 recommender systems utilize various AI models to provide personalized recommendations based on user behavior data and content information. By employing different techniques and hybrid models, these systems enhance user experience and satisfaction by suggesting relevant items or content. As the field continues to evolve, ongoing research and advancements are needed to develop more sophisticated and dynamic recommendation systems that cater to individual preferences and user needs
+
+
+## 23/08/13
+Recommender algorithms are systems that propose suitable items based on a user's personal preferences or past behavior patterns. AI-based recommender algorithms can be broadly categorized into **Collaborative Filtering**, **Content-based Filtering**, and **Hybrid Methods**.
+
+- **Collaborative Filtering**
+  - Recommendations are generated based on the interactions between users and items (e.g., ratings, purchase history). This method recommends by finding similarities between users or items.
+
+- **Content-based Filtering**
+  - Recommendations are generated based on the attributes of items (e.g., the genre or actors of a movie) and user profile information.
+
+- **Hybrid Methods**
+  - This approach combines both Collaborative Filtering and Content-based Filtering.
+
+### sample code
+``` python
+import numpy as np
+user_item_matrix = np.array([
+    [4, 0, 2, 1],
+    [0, 2, 3, 4],
+    [1, 0, 5, 3],
+    [2, 5, 0, 0]
+])
+
+# 아이템간 유사도 계산 (코사인 유사도)
+def cosine_similarity(v1, v2):
+    dot_product = np.dot(v1, v2)
+    norm_v1 = np.linalg.norm(v1)
+    norm_v2 = np.linalg.norm(v2)
+    return dot_product / (norm_v1 * norm_v2)
+
+def recommend(user, user_item_matrix):
+    similar_scores = {}
+    
+    for i in range(user_item_matrix.shape[1]):
+        if user_item_matrix[user][i] == 0:
+            for j in range(user_item_matrix.shape[1]):
+                if user_item_matrix[user][j] != 0:
+                    similarity = cosine_similarity(user_item_matrix[:, i], user_item_matrix[:, j])
+                    similar_scores[i] = similar_scores.get(i, 0) + (similarity * user_item_matrix[user][j])
+
+    recommended_item = max(similar_scores, key=similar_scores.get)
+    return recommended_item
+
+user = 0
+print(f"User {user}에게 추천하는 아이템: {recommend(user, user_item_matrix)}")
+```
