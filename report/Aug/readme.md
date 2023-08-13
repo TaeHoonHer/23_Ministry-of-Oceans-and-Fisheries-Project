@@ -86,3 +86,34 @@ def recommend(user, user_item_matrix):
 user = 0
 print(f"User {user}에게 추천하는 아이템: {recommend(user, user_item_matrix)}")
 ```
+
+### Matrix factorization techniques for recommender systems
+- This paper emphasizes matrix factorization, one of the critical approaches in recommender system
+
+#### First
+- The paper emphasizes the significance of recommender systems and their applications, particularly highlighting the importance of information retrieval and filtering in large datasets
+- The role of recommender systems as a primary tool for personalized information provision is discussed.
+
+#### Basics of Matrix Factorization
+- The user-item rating matrix is represented as a large matrix with most values missing. The goal is to decompose this matrix into two smaller matrices
+- These smaller matrices represent the "latent features" of users and items. These features can reflect the preferences of users and the characteristics of items
+
+#### Advantages of Matrix Factorization
+- Matrix factorization is very effective in predicting missing values
+- It is computationally efficient and can be applied to large datasets
+- Latent features can capture various attributes of users and items
+
+#### Matrix Factorization Algorithms
+- The paper describes matrix factorization algorithms such as Alternating Least Squares (ALS) and Stochastic Gradient Descent (SGD)
+- It discusses the advantages and disadvantages of each algorithm and the best practices for specific scenarios
+
+#### Regularization and Overfitting Prevention
+- Matrix factorization can be susceptible to overfitting.
+- The paper introduces various regularization techniques to address this issue
+
+#### Real-world Applications
+- The success story of matrix factorization in the Netflix Prize competition is described. Matrix factorization was a key algorithm in this competition, achieving high predictive accuracy
+
+#### Conclusion and Future Research Directions
+- The paper summarizes the advantages and limitations of matrix factorization techniques
+- It suggests future research and improvement directions, especially focusing on handling high-dimensional data and complex interaction patterns more effectively
