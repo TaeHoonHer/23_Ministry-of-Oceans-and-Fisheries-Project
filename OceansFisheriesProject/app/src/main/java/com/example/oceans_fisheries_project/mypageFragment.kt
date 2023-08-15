@@ -31,7 +31,7 @@ class mypageFragment : Fragment() {
             startActivity(intent)
         }
 
-        var databaseReference = FirebaseDatabase.getInstance().getReference() // 파이어베이스 데이터베이스 불러온다
+        var databaseReference = FirebaseDatabase.getInstance().getReference("scrap") // 파이어베이스 데이터베이스 불러온다
 
         databaseReference.addListenerForSingleValueEvent(object : ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {

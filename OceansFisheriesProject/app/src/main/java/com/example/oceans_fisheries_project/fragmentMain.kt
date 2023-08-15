@@ -6,7 +6,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.oceans_fisheries_project.databinding.MainFragmentBinding
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 
 class fragmentMain : Fragment() {
 
@@ -17,27 +22,37 @@ class fragmentMain : Fragment() {
     ): View? {
 
         val binding = MainFragmentBinding.inflate(inflater, container, false)
+        var arr = arrayListOf<recyclerCustom>()
+
+        var databaseReference = FirebaseDatabase.getInstance().getReference("news")
 
 
-            var arr = arrayListOf( // 임시 데이터
-                recyclerCustom(
-                    img = R.drawable.bac,
-                    title = "a",
-                    date = "1"
-                ),
-                recyclerCustom(
-                    img = R.drawable.bac,
-                    title = "b",
-                    date = "2"
-                )
-            )
 
-            var adap = Custom(arr)
-            binding.recy.apply {
-                layoutManager = LinearLayoutManager(requireContext())
-                setHasFixedSize(true)
-                adapter = adap
+
+        databaseReference.addListenerForSingleValueEvent(object :ValueEventListener{
+            override fun onDataChange(snapshot: DataSnapshot) {
+                for(childSnapshot in snapshot.children){
+                    var title = childSnapshot.child("title").getValue(String::class.java)
+                    var date = childSnapshot.child("date").getValue(String::class.java)
+
+                    var data = recyclerCustom(R.drawable.mypage,title!!,date!!)
+                    arr.add(data)
+                }
+
+                var adap = Custom(arr)
+                binding.recy.apply {
+                    layoutManager = LinearLayoutManager(requireContext())
+                    setHasFixedSize(true)
+                    adapter = adap
+                }
             }
+
+            override fun onCancelled(error: DatabaseError) {
+                println(error)
+            }
+
+        })
+
 
         return binding.root
 
