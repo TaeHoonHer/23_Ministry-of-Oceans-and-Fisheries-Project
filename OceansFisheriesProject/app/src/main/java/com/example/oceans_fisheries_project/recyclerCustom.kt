@@ -61,13 +61,13 @@ class Custom(private val data: ArrayList<recyclerCustom>): RecyclerView.Adapter<
         }
     }
     fun addToDatabases(item: recyclerCustom){
-        val bookmark = FirebaseDatabase.getInstance().getReference()
+        val bookmark = FirebaseDatabase.getInstance().getReference("scrap")
         val bookmarkData = hashMapOf(
             "title" to item.title,
             "date" to item.date
         )
         val database = FirebaseDatabase.getInstance()
-        val bookmarksRef = database.getReference()
+        val bookmarksRef = database.getReference("scrap")
         val query = bookmarksRef.orderByChild("title").equalTo(item.title)
         query.addListenerForSingleValueEvent(object :ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
