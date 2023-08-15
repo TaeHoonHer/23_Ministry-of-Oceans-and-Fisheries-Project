@@ -14,21 +14,29 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 
 class fragmentMain : Fragment() {
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
         val binding = MainFragmentBinding.inflate(inflater, container, false)
         var arr = arrayListOf<recyclerCustom>()
 
+        binding.potxt.setOnClickListener {
+            binding.btxt.text = "EU Fisheries Ministers decline to cease destructive fishing practices"
+        }
+        binding.lotxt.setOnClickListener {
+            binding.btxt.text = "Gas and condensate discoveries to be developed in the Norwegian Sea"
+        }
+        binding.retxt.setOnClickListener {
+            binding.btxt.text = "World’s first pure battery tanker made her first bunkering operation"
+        }
+
+
+
+
+
         var databaseReference = FirebaseDatabase.getInstance().getReference("news")
-
-
-
-
         databaseReference.addListenerForSingleValueEvent(object :ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
                 for(childSnapshot in snapshot.children){
@@ -52,10 +60,6 @@ class fragmentMain : Fragment() {
             }
 
         })
-
-
         return binding.root
-
         }
-
 }
