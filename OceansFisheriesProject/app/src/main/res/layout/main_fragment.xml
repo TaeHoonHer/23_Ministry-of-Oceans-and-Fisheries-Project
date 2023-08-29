@@ -58,6 +58,7 @@
             android:textStyle="bold"></TextView>
     </LinearLayout>
 
+
     <ImageView
         android:id="@+id/img"
         android:layout_width="0dp"

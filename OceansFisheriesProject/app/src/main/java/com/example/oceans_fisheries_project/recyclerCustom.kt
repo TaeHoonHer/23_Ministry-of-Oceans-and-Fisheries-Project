@@ -2,12 +2,15 @@ package com.example.oceans_fisheries_project
 
 import android.app.PendingIntent.getActivity
 import android.content.Intent
+import android.graphics.drawable.Drawable
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.oceans_fisheries_project.databinding.ItemBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
@@ -19,19 +22,21 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
 
 data class recyclerCustom(
-    var img: Int,
+    var img: String,
     var title: String,
     var date: String
 )
 class Custom(private val data: ArrayList<recyclerCustom>): RecyclerView.Adapter<Custom.CustomViewHolder>(){
     private lateinit var binding: ItemBinding
 
-    var btnclickIndex = 0
-
     inner class CustomViewHolder(binding: ItemBinding):RecyclerView.ViewHolder(binding.root){
         fun bind(item : recyclerCustom){
             binding.titletxt.text = item.title
             binding.datetxt.text = item.date
+
+            Glide.with(itemView)
+                .load(item.img)
+                .into(binding.img)
         }
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CustomViewHolder {
@@ -61,36 +66,47 @@ class Custom(private val data: ArrayList<recyclerCustom>): RecyclerView.Adapter<
         }
     }
     fun addToDatabases(item: recyclerCustom){
-        val bookmark = FirebaseDatabase.getInstance().getReference("scrap")
-        val bookmarkData = hashMapOf(
-            "title" to item.title,
-            "date" to item.date
-        )
-        val database = FirebaseDatabase.getInstance()
-        val bookmarksRef = database.getReference("scrap")
-        val query = bookmarksRef.orderByChild("title").equalTo(item.title)
-        query.addListenerForSingleValueEvent(object :ValueEventListener{
-            override fun onDataChange(snapshot: DataSnapshot) {
-                if(snapshot.exists()){
-                    for(snapshot in snapshot.children){
-                        snapshot.ref.removeValue()
+        val auth = FirebaseAuth.getInstance()
+        val currentUser = auth.currentUser
+
+        if(currentUser != null){
+            val userId = currentUser.uid
+
+            val bookmark = FirebaseDatabase.getInstance().getReference("scrap").child(userId)
+            val bookmarkData = hashMapOf(
+                "title" to item.title,
+                "date" to item.date,
+                "img_href" to item.img
+            )
+            val database = FirebaseDatabase.getInstance()
+            val bookmarksRef = database.getReference("scrap").child(userId)
+            val query = bookmarksRef.orderByChild("title").equalTo(item.title)
+            query.addListenerForSingleValueEvent(object :ValueEventListener{
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    if(snapshot.exists()){
+                        for(snapshot in snapshot.children){
+                            snapshot.ref.removeValue()
+                        }
+                        println("데이터 삭제 성공")
                     }
-                    println("데이터 삭제 성공")
+                    else{
+                        bookmark.push().setValue(bookmarkData)
+                            .addOnSuccessListener {
+                                println("데이터 저장 성공")
+                            }
+                            .addOnFailureListener { e->
+                                println(e.message)
+                            }
+                    }
                 }
-                else{
-                    bookmark.push().setValue(bookmarkData)
-                        .addOnSuccessListener {
-                            println("데이터 저장 성공")
-                        }
-                        .addOnFailureListener { e->
-                            println(e.message)
-                        }
+                override fun onCancelled(error: DatabaseError) {
+                    println(error.message)
                 }
-            }
-            override fun onCancelled(error: DatabaseError) {
-                println(error.message)
-            }
-        })
+            })
+
+        }
+
+
     }
 }
 

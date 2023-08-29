@@ -32,18 +32,15 @@ class fragmentMain : Fragment() {
             binding.btxt.text = "World’s first pure battery tanker made her first bunkering operation"
         }
 
-
-
-
-
         var databaseReference = FirebaseDatabase.getInstance().getReference("news")
         databaseReference.addListenerForSingleValueEvent(object :ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
                 for(childSnapshot in snapshot.children){
                     var title = childSnapshot.child("title").getValue(String::class.java)
                     var date = childSnapshot.child("date").getValue(String::class.java)
+                    var img = childSnapshot.child("img_href").getValue(String::class.java)
 
-                    var data = recyclerCustom(R.drawable.mypage,title!!,date!!)
+                    var data = recyclerCustom(img!!,title!!,date!!)
                     arr.add(data)
                 }
 

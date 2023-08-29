@@ -13,7 +13,7 @@
         android:orientation="vertical"
         >
 
-        <androidx.cardview.widget.CardView
+        <ImageView
             android:id="@+id/img"
             android:layout_width="100dp"
             android:layout_height="80dp"
@@ -21,19 +21,19 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="10dp"
-            app:cardCornerRadius="20dp"></androidx.cardview.widget.CardView>
+            android:background="@color/black"
+            app:cardCornerRadius="20dp"></ImageView>
 
         <TextView
             android:id="@+id/titletxt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
             android:layout_toRightOf="@+id/img"
-            android:layout_marginLeft="30dp"
-            android:textSize="20dp"
-            android:text="기사제목"
-            android:maxLines="1"
             android:ellipsize="end"
-            ></TextView>
+            android:maxLines="1"
+            android:text="기사제목"
+            android:textSize="15sp"></TextView>
 
         <TextView
             android:id="@+id/datetxt"
@@ -51,8 +51,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/datetxt"
-            android:layout_marginLeft="166dp"
-            android:layout_marginTop="-15dp"
+            android:layout_marginLeft="112dp"
+            android:layout_marginTop="-11dp"
 
             android:layout_toRightOf="@id/datetxt"
             android:src="@drawable/iconbookmark"></ImageView>

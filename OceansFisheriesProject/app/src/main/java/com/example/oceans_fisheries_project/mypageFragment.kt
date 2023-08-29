@@ -31,31 +31,39 @@ class mypageFragment : Fragment() {
             startActivity(intent)
         }
 
-        var databaseReference = FirebaseDatabase.getInstance().getReference("scrap") // 파이어베이스 데이터베이스 불러온다
+        val auth = FirebaseAuth.getInstance()
+        val currentUser = auth.currentUser
 
-        databaseReference.addListenerForSingleValueEvent(object : ValueEventListener{
-            override fun onDataChange(snapshot: DataSnapshot) {
-                for(childSnapshot in snapshot.children){
-                    var title = childSnapshot.child("title").getValue(String::class.java)
-                    var date = childSnapshot.child("date").getValue(String::class.java)
+        if(currentUser != null){
+            val userId = currentUser.uid
 
-                    var data = recyclerCustom(R.drawable.mypage,title!!,date!!)
+            var databaseReference = FirebaseDatabase.getInstance().getReference("scrap").child(userId) // 파이어베이스 데이터베이스 불러온다
+            databaseReference.addListenerForSingleValueEvent(object : ValueEventListener{
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    for(childSnapshot in snapshot.children){
+                        var title = childSnapshot.child("title").getValue(String::class.java)
+                        var date = childSnapshot.child("date").getValue(String::class.java)
+                        var img = childSnapshot.child("img_href").getValue(String::class.java)
 
-                    arr.add(data)
-                    println(data)
+                        var data = recyclerCustom(img!!,title!!,date!!)
+                        arr.add(data)
+                    }
+
+                    var adpater = Custom(arr)
+                    binding.mypageRcyc.apply {
+                        layoutManager = LinearLayoutManager(requireContext())
+                        adapter = adpater
+                    }
                 }
 
-                var adpater = Custom(arr)
-                binding.mypageRcyc.apply {
-                    layoutManager = LinearLayoutManager(requireContext())
-                    adapter = adpater
+                override fun onCancelled(error: DatabaseError) {
+                    println(error)
                 }
-            }
+            })
 
-            override fun onCancelled(error: DatabaseError) {
-                println(error)
-            }
-        })
+        }
+
+
         return binding.root
     }
 
