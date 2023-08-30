@@ -58,90 +58,109 @@
             android:textStyle="bold"></TextView>
     </LinearLayout>
 
-
-    <ImageView
-        android:id="@+id/img"
+    <androidx.core.widget.NestedScrollView
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:layout_marginBottom="30dp"
-        android:background="@drawable/rectangle"
-        app:layout_constraintBottom_toTopOf="@+id/latesttxt"
-        app:layout_constraintEnd_toStartOf="@+id/endGuide"
-        app:layout_constraintStart_toEndOf="@+id/startGuide"
-        app:layout_constraintTop_toBottomOf="@+id/toptxt"
-        ></ImageView>
-
-    <ImageView
-        android:id="@+id/minstrytxt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:background="@drawable/ministry"
-        app:layout_constraintBottom_toBottomOf="@+id/img"
-        app:layout_constraintEnd_toEndOf="@+id/img"
-        app:layout_constraintHorizontal_bias="0.029"
-        app:layout_constraintStart_toStartOf="@+id/img"
-        app:layout_constraintTop_toTopOf="@+id/img"
-        app:layout_constraintVertical_bias="0.21"></ImageView>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="read more"
-        android:textSize="13sp"
-        app:layout_constraintBottom_toBottomOf="@+id/img"
-        app:layout_constraintEnd_toEndOf="@+id/img"
-        app:layout_constraintStart_toStartOf="@+id/img"
-        app:layout_constraintTop_toBottomOf="@+id/btxt"
-
-        ></TextView>
-
-    <TextView
-        android:id="@+id/btxt"
-        android:layout_width="344dp"
-        android:layout_height="96dp"
-        android:gravity="center"
-        android:text="Everything you need to know about &#160;maritime logistics news"
-        android:textSize="15sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/img"
-        app:layout_constraintEnd_toEndOf="@+id/img"
-        app:layout_constraintStart_toStartOf="@+id/img"
-        app:layout_constraintTop_toBottomOf="@+id/minstrytxt"
-        app:layout_constraintVertical_bias="0.091"
-        android:padding="20dp"
-        ></TextView>
-
-    <ImageView
-        android:layout_width="114dp"
-        android:layout_height="106dp"
-        android:layout_marginTop="16dp"
-        android:src="@drawable/iconvehicleship"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"></ImageView>
-
-    <TextView
-        android:id="@+id/latesttxt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
-        android:background="@drawable/lastestnews"
-        app:layout_constraintBottom_toTopOf="@+id/recy"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/img"
-        android:layout_marginBottom="20dp"
-        app:layout_constraintVertical_bias="0.234"></TextView>
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recy"
-        android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintStart_toEndOf="@+id/startGuide"
+        app:layout_constraintEnd_toStartOf="@+id/endGuide"
+        app:layout_constraintTop_toBottomOf="@+id/toptxt"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/latesttxt"
-        tools:layout_editor_absoluteX="-16dp"
-        tools:listitem="@layout/item"
-        ></androidx.recyclerview.widget.RecyclerView>
+        >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+
+            <ImageView
+                android:id="@+id/img"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:layout_marginBottom="30dp"
+                android:background="@drawable/rectangle"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+
+                ></ImageView>
+
+            <ImageView
+                android:id="@+id/minstrytxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/ministry"
+                app:layout_constraintBottom_toBottomOf="@+id/img"
+                app:layout_constraintEnd_toEndOf="@+id/img"
+                app:layout_constraintHorizontal_bias="0.029"
+                app:layout_constraintStart_toStartOf="@+id/img"
+                app:layout_constraintTop_toTopOf="@+id/img"
+                app:layout_constraintVertical_bias="0.21"></ImageView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="read more"
+                android:textSize="13sp"
+                app:layout_constraintBottom_toBottomOf="@+id/img"
+                app:layout_constraintEnd_toEndOf="@+id/img"
+                app:layout_constraintStart_toStartOf="@+id/img"
+                app:layout_constraintTop_toBottomOf="@+id/btxt"
+
+                ></TextView>
+
+            <TextView
+                android:id="@+id/btxt"
+                android:layout_width="344dp"
+                android:layout_height="96dp"
+                android:gravity="center"
+                android:text="Everything you need to know about &#160;maritime logistics news"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/img"
+                app:layout_constraintEnd_toEndOf="@+id/img"
+                app:layout_constraintStart_toStartOf="@+id/img"
+                app:layout_constraintTop_toBottomOf="@+id/minstrytxt"
+                app:layout_constraintVertical_bias="0.091"
+                android:padding="20dp"
+                ></TextView>
+
+            <ImageView
+                android:layout_width="114dp"
+                android:layout_height="106dp"
+                android:layout_marginTop="16dp"
+                android:src="@drawable/iconvehicleship"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"></ImageView>
+
+            <TextView
+                android:id="@+id/latesttxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="36dp"
+                android:background="@drawable/lastestnews"
+                app:layout_constraintBottom_toTopOf="@+id/recy"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/img"
+                android:layout_marginBottom="20dp"
+                app:layout_constraintVertical_bias="0.234"></TextView>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recy"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/latesttxt"
+                tools:listitem="@layout/item"
+                ></androidx.recyclerview.widget.RecyclerView>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -44,8 +44,9 @@ class mypageFragment : Fragment() {
                         var title = childSnapshot.child("title").getValue(String::class.java)
                         var date = childSnapshot.child("date").getValue(String::class.java)
                         var img = childSnapshot.child("img_href").getValue(String::class.java)
+                        var content = childSnapshot.child("content").getValue(String::class.java)
 
-                        var data = recyclerCustom(img!!,title!!,date!!)
+                        var data = recyclerCustom(img!!,title!!,date!!,content!!)
                         arr.add(data)
                     }
 

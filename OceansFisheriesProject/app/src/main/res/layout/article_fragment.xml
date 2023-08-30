@@ -62,8 +62,8 @@
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/hrview"
-        app:layout_constraintVertical_bias="0.0"
-        tools:layout_editor_absoluteX="0dp">
+
+        >
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -92,30 +92,24 @@
 
                 ></View>
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:padding="20dp"
-                android:text="기사 part1"
-                android:textSize="20dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                ></TextView>
+
 
             <ImageView
-                android:layout_width="350dp"
-                android:layout_height="300dp"
+                android:id="@+id/news_img"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:src="@color/black"
-
+                android:adjustViewBounds="true"
                 ></ImageView>
 
+
             <TextView
+                android:id="@+id/contenttxt"
                 android:layout_width="match_parent"
-                android:layout_height="160dp"
-                android:layout_marginTop="10dp"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="10dp"
                 android:padding="20dp"
-                android:text="기사 part2"
+                android:text="기사 part1"
                 android:textSize="20dp"></TextView>
 
             <LinearLayout
@@ -147,17 +141,7 @@
         </LinearLayout>
     </ScrollView>
 
-<!--    <com.google.android.material.bottomnavigation.BottomNavigationView-->
-<!--        android:id="@+id/bottomnav"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:menu="@menu/nav_menu"-->
-<!--        app:itemIconSize="50dp"-->
-<!--        app:labelVisibilityMode="unlabeled"-->
-<!--        android:background="@color/white"-->
 
-<!--        ></com.google.android.material.bottomnavigation.BottomNavigationView>-->
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

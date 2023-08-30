@@ -24,7 +24,8 @@ import com.google.firebase.ktx.Firebase
 data class recyclerCustom(
     var img: String,
     var title: String,
-    var date: String
+    var date: String,
+    var content : String
 )
 class Custom(private val data: ArrayList<recyclerCustom>): RecyclerView.Adapter<Custom.CustomViewHolder>(){
     private lateinit var binding: ItemBinding
@@ -59,6 +60,9 @@ class Custom(private val data: ArrayList<recyclerCustom>): RecyclerView.Adapter<
             var intent = Intent(binding.root.context,ArticleActivity::class.java)
             intent.putExtra("title","${item.title}")
             intent.putExtra("date","${item.date}")
+            intent.putExtra("img_href", "${item.img}")
+            intent.putExtra("content","${item.content}")
+
             startActivity(binding.root.context,intent,null)
         }
         binding.bookmarkbtn.setOnClickListener{
