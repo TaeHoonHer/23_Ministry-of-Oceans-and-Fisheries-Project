@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.ContactsContract.CommonDataKinds.Email
+import android.util.Log
 import android.widget.Toast
 import com.example.oceans_fisheries_project.databinding.ActivityLoginBinding
 import com.example.oceans_fisheries_project.databinding.ActivityStartBinding
@@ -26,6 +27,10 @@ class LoginActivity : AppCompatActivity() {
     }
 
     fun signIn(email: String, pass : String){
+        val auth = FirebaseAuth.getInstance()
+        val user = auth.currentUser
+
+        Log.d("name","${user?.displayName}")
 
         uasuth.signInWithEmailAndPassword(email,pass)
             .addOnCompleteListener { task->

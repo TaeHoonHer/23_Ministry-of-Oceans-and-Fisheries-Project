@@ -80,7 +80,8 @@ class Custom(private val data: ArrayList<recyclerCustom>): RecyclerView.Adapter<
             val bookmarkData = hashMapOf(
                 "title" to item.title,
                 "date" to item.date,
-                "img_href" to item.img
+                "img_href" to item.img,
+                "content" to item.content
             )
             val database = FirebaseDatabase.getInstance()
             val bookmarksRef = database.getReference("scrap").child(userId)
