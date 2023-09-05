@@ -26,16 +26,19 @@ class mypageFragment : Fragment() {
         val binding = ActivityMypageBinding.inflate(inflater,container,false)
 
         var arr = arrayListOf<recyclerCustom>()
+
         binding.settingbtn.setOnClickListener { // 세팅창으로 이동
-            var intent = Intent(activity,mypage_ediAcitivity::class.java)
-            startActivity(intent)
+            parentFragmentManager.beginTransaction().replace(R.id.frag,setting_main_fragment()).commit() // 설정 프래그먼트로 이동
         }
+
+
 
         val auth = FirebaseAuth.getInstance()
         val currentUser = auth.currentUser
 
         if(currentUser != null){
             val userId = currentUser.uid
+            binding.nametxt.text = currentUser.displayName
 
             var databaseReference = FirebaseDatabase.getInstance().getReference("scrap").child(userId) // 파이어베이스 데이터베이스 불러온다
             databaseReference.addListenerForSingleValueEvent(object : ValueEventListener{
@@ -45,7 +48,6 @@ class mypageFragment : Fragment() {
                         var date = childSnapshot.child("date").getValue(String::class.java)
                         var img = childSnapshot.child("img_href").getValue(String::class.java)
                         var content = childSnapshot.child("content").getValue(String::class.java)
-
                         var data = recyclerCustom(img!!,title!!,date!!,content!!)
                         arr.add(data)
                     }
@@ -56,15 +58,12 @@ class mypageFragment : Fragment() {
                         adapter = adpater
                     }
                 }
-
                 override fun onCancelled(error: DatabaseError) {
                     println(error)
                 }
             })
 
         }
-
-
         return binding.root
     }
 

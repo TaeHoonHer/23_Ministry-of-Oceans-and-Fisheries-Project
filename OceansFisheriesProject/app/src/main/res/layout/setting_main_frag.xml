@@ -19,7 +19,6 @@
             android:layout_gravity="start"
             app:menu="@menu/side_menu"
             app:headerLayout="@layout/sidebar"
-
             ></com.google.android.material.navigation.NavigationView>
 
 
@@ -27,7 +26,6 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-
             >
             <androidx.fragment.app.FragmentContainerView
                 android:layout_width="match_parent"
@@ -177,6 +175,7 @@
                 app:layout_constraintWidth_percent="0.8" />
 
             <View
+                android:id="@+id/lastView"
                 android:layout_width="0dp"
                 android:layout_height="1dp"
                 android:layout_marginTop="4dp"
@@ -196,6 +195,36 @@
                 android:background="@drawable/rightvector"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/option_2btn"></ImageView>
+
+
+            <LinearLayout
+                android:id="@+id/logoutLin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@+id/lastView"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                >
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/logout"
+                    android:layout_gravity="center"
+
+                    ></ImageView>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Logout"
+                    android:textSize="25sp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="5dp"
+                    android:textColor="@color/red"
+                    ></TextView>
+            </LinearLayout>
 
 
 

@@ -8,9 +8,6 @@ import androidx.fragment.app.Fragment
 import com.example.oceans_fisheries_project.databinding.ScrapFragmentBinding
 
 class scrapFragment:Fragment() {
-
-
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
