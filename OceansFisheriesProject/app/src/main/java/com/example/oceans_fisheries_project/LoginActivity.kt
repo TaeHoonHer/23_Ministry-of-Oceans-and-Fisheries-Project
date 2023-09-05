@@ -26,15 +26,26 @@ class LoginActivity : AppCompatActivity() {
         val logid = sharedPreferences.getString("id",null)
         val logpass = sharedPreferences.getString("pass",null)
         val logcheck = sharedPreferences.getBoolean("check",false)
+        val savecheck = sharedPreferences.getBoolean("savedId",false)
 
-        if(!logid.isNullOrEmpty()  && !logpass.isNullOrEmpty() &&logcheck != null){
+        binding.stayCeck.isChecked = logcheck
+        binding.saveCeck.isChecked = savecheck
+
+        if(!logid.isNullOrEmpty()  && !logpass.isNullOrEmpty() &&logcheck == true){  // 자동로그인 체크 true일경우 자동로그인
             signIn(logid,logpass)
         }
+        if(!logid.isNullOrEmpty() && savecheck == true){ // 아이디 저장 true시 아이디 저장
+            binding.idEdittxt.setText(logid)
+        }
 
-        binding.signInBtn2.setOnClickListener {
+        binding.signInBtn2.setOnClickListener { // 로그인 
             val email = binding.idEdittxt.text.toString()
             val pass = binding.passEdittxt.text.toString()
             signIn(email,pass)
+        }
+        binding.signUptxt.setOnClickListener { // 회원가입창 이동
+            var intent = Intent(this,SignUpActivity::class.java)
+            startActivity(intent)
         }
     }
 
@@ -43,12 +54,13 @@ class LoginActivity : AppCompatActivity() {
             .addOnCompleteListener { task->
                 if(task.isSuccessful){
                     Toast.makeText(this,"로그인 성공",Toast.LENGTH_SHORT).show()
-
                     val sharedPreferences = getSharedPreferences("shp",Activity.MODE_PRIVATE)
                     var autoLogin =sharedPreferences.edit()  // 자동 로그인 입력
                     autoLogin.putString("id",email)
                     autoLogin.putString("pass",pass)
                     autoLogin.putBoolean("check", binding.stayCeck.isChecked)
+                    autoLogin.putBoolean("savedId",binding.saveCeck.isChecked)
+                    Log.d("test","${binding.stayCeck.isChecked}")
                     autoLogin.commit()
 
                     val intent = Intent(this, MainActivity::class.java)

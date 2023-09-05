@@ -1,6 +1,7 @@
 package com.example.oceans_fisheries_project
 
 import android.app.Activity
+import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Binder
 import android.os.Bundle
@@ -37,6 +38,8 @@ class setting_main_fragment :Fragment() {
             val editor = sharedPreferences.edit()
             editor.clear() // 로그아웃시 자동입력 정보 초기화
             editor.commit()
+            var intent = Intent(requireContext(),LoginActivity::class.java)
+            startActivity(intent)
         }
 
 
