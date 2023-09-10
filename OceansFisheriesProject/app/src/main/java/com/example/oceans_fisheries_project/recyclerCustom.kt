@@ -65,6 +65,7 @@ class Custom(private val data: ArrayList<recyclerCustom>): RecyclerView.Adapter<
 
             startActivity(binding.root.context,intent,null)
         }
+
         binding.bookmarkbtn.setOnClickListener{
             addToDatabases(item)
         }

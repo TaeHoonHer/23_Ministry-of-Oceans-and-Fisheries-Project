@@ -68,7 +68,6 @@
                 android:id="@+id/ok_btn"
                 android:layout_width="195dp"
                 android:layout_height="45dp"
-
                 android:layout_marginTop="148dp"
                 android:background="@drawable/blue_ok_btn"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -91,12 +90,6 @@
                 app:layout_constraintTop_toBottomOf="@id/nickname_edi"
                 android:rotation="-10"
                 ></ImageView>
-
-
-
-
-
-
 
         </androidx.constraintlayout.widget.ConstraintLayout>
         

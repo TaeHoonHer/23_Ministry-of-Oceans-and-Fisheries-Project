@@ -29,6 +29,5 @@ class ArticleActivity: AppCompatActivity() {
         Glide.with(this)
             .load(img)
             .into(binding.newsImg)
-
     }
 }

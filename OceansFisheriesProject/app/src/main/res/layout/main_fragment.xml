@@ -22,48 +22,14 @@
         app:layout_constraintGuide_percent="0.97"
         ></androidx.constraintlayout.widget.Guideline>
 
-    <LinearLayout
-        android:id="@+id/toptxt"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="0dp">
 
-        <TextView
-            android:id="@+id/potxt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="30dp"
-            android:text="Popuar"
-            android:textSize="20dp"
-            android:textStyle="bold"></TextView>
-
-        <TextView
-            android:id="@+id/lotxt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="30dp"
-            android:text="logistics"
-            android:textSize="20dp"
-            android:textStyle="bold"></TextView>
-
-        <TextView
-            android:id="@+id/retxt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="30dp"
-            android:text="Recent"
-            android:textSize="20dp"
-            android:textStyle="bold"></TextView>
-    </LinearLayout>
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintStart_toEndOf="@+id/startGuide"
         app:layout_constraintEnd_toStartOf="@+id/endGuide"
-        app:layout_constraintTop_toBottomOf="@+id/toptxt"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         >
 
@@ -71,6 +37,44 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             >
+
+            <LinearLayout
+                android:id="@+id/toptxt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:layout_editor_absoluteX="0dp">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/potxt"
+                    android:background="#00ff0000"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="30dp"
+                    android:text="Popular"
+                    android:textSize="20dp"
+                    android:textStyle="bold"></androidx.appcompat.widget.AppCompatButton>
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/lotxt"
+                    android:background="#00ff0000"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="30dp"
+                    android:text="logistics"
+                    android:textSize="20dp"
+                    android:textStyle="bold"></androidx.appcompat.widget.AppCompatButton>
+
+                <Button
+                    android:id="@+id/retxt"
+                    android:background="#00ff0000"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Recent"
+                    android:textSize="20dp"
+                    android:textStyle="bold"></Button>
+            </LinearLayout>
 
             <ImageView
                 android:id="@+id/img"
@@ -114,7 +118,7 @@
                 android:layout_width="344dp"
                 android:layout_height="96dp"
                 android:gravity="center"
-                android:text="Everything you need to know about &#160;maritime logistics news"
+                android:text=""
                 android:textSize="15sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="@+id/img"
