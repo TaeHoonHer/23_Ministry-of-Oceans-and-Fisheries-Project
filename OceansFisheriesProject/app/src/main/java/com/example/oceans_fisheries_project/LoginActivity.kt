@@ -38,15 +38,8 @@ class LoginActivity : AppCompatActivity() {
             binding.idEdittxt.setText(logid)
         }
 
-<<<<<<< HEAD
-        binding.signInBtn2.setOnClickListener { // 로그인 
-=======
-<<<<<<< Updated upstream
-        binding.signInBtn2.setOnClickListener {
-=======
+
         binding.signInBtn2.setOnClickListener { // 로그인
->>>>>>> Stashed changes
->>>>>>> main
             val email = binding.idEdittxt.text.toString()
             val pass = binding.passEdittxt.text.toString()
             signIn(email,pass)
