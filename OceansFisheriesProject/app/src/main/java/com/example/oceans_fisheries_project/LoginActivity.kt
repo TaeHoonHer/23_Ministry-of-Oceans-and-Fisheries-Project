@@ -31,7 +31,11 @@ class LoginActivity : AppCompatActivity() {
             signIn(logid,logpass)
         }
 
+<<<<<<< Updated upstream
         binding.signInBtn2.setOnClickListener {
+=======
+        binding.signInBtn2.setOnClickListener { // 로그인
+>>>>>>> Stashed changes
             val email = binding.idEdittxt.text.toString()
             val pass = binding.passEdittxt.text.toString()
             signIn(email,pass)
