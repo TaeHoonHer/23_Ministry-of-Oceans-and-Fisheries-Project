@@ -1,10 +1,12 @@
 package com.example.oceans_fisheries_project
 
+import android.content.Intent
 import android.os.Bundle
 import android.provider.Settings.Global
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.contentValuesOf
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -26,32 +28,31 @@ class fragmentMain : Fragment() {
     ): View? {
         val binding = MainFragmentBinding.inflate(inflater, container, false)
         var arr = arrayListOf<recyclerCustom>()
-
         var str = "popular"  // 초기 popular 로 화면 지정
         GlobalScope.launch {
-            binding.btxt.text = clickTop(str)
+            binding.btxt.text = clickTop(str).split(" ")[0]
         }
 
         binding.potxt.setOnClickListener {  // 버튼 클릭에따른 메인 박스 텍스트 변경
-            var str = "popular"
+            str = "popular"
             GlobalScope.launch {
-                binding.btxt.text = clickTop(str)
+                binding.btxt.text = clickTop(str).split(" ")[0] // clickTop 함수 리턴 1인덱스
             }
         }
         binding.lotxt.setOnClickListener {
-            var str = "logistics"
+            str = "logistics"
             GlobalScope.launch {
-                binding.btxt.text = clickTop(str)
+                binding.btxt.text = clickTop(str).split(" ")[0]
             }
         }
         binding.retxt.setOnClickListener {
-            var str = "recent"
+            str = "recent"
             GlobalScope.launch {
-                binding.btxt.text = clickTop(str)
+                binding.btxt.text = clickTop(str).split(" ")[0]
             }
         }
 
-        var databaseReference = FirebaseDatabase.getInstance().getReference("news")
+        var databaseReference = FirebaseDatabase.getInstance().getReference("news") // db를 불러서 리사이클러 뷰로 적용
         databaseReference.addListenerForSingleValueEvent(object :ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
                 for(childSnapshot in snapshot.children){
@@ -61,23 +62,38 @@ class fragmentMain : Fragment() {
                     var content = childSnapshot.child("content").getValue(String::class.java)
 
                     var data = recyclerCustom(img!!,title!!,date!!,content!!)
-                    arr.add(data)
+                    arr.add(data)  //데이터 리스트 캡슐화
                 }
 
-                var adap = Custom(arr)
-                binding.recy.apply {
-                    layoutManager = LinearLayoutManager(requireContext())
-                    setHasFixedSize(true)
-                    adapter = adap
+                if(isAdded){
+                    var adap = Custom(arr)  // 리사이클러 뷰 어뎁터 설정, 적용
+                    binding.recy.apply {
+                        layoutManager = LinearLayoutManager(requireContext())
+                        setHasFixedSize(true)
+                        adapter = adap
+                    }
                 }
+
             }
 
             override fun onCancelled(error: DatabaseError) {
                 println(error)
             }
-
         })
 
+        binding.img.setOnClickListener{
+            var intent = Intent(requireContext(),ArticleActivity::class.java)
+
+            GlobalScope.launch {
+                var (title, date, img, content) = clickTop(str).split(" ")
+                intent.putExtra("title","${title}")
+                intent.putExtra("date","${date}")
+                intent.putExtra("img_href","${img}")
+                intent.putExtra("content","${content}")
+
+                startActivity(intent)
+            }
+        }
 
         return binding.root
         }
@@ -94,7 +110,7 @@ class fragmentMain : Fragment() {
                         var img = ch.child("img_href").getValue(String::class.java)
                         var content = ch.child("content").getValue(String::class.java)
 
-                        ret = title!!
+                        ret = "${title} ${date} ${img} ${content}"
                     }
                     continuation.resume(ret)
                 }

@@ -54,7 +54,8 @@
                     android:layout_marginRight="30dp"
                     android:text="Popular"
                     android:textSize="20dp"
-                    android:textStyle="bold"></androidx.appcompat.widget.AppCompatButton>
+                    android:textColor="@color/gray"
+                    ></androidx.appcompat.widget.AppCompatButton>
 
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/lotxt"
@@ -64,16 +65,18 @@
                     android:layout_marginRight="30dp"
                     android:text="logistics"
                     android:textSize="20dp"
-                    android:textStyle="bold"></androidx.appcompat.widget.AppCompatButton>
+                    android:textColor="@color/gray"
+                    ></androidx.appcompat.widget.AppCompatButton>
 
-                <Button
+                <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/retxt"
                     android:background="#00ff0000"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Recent"
                     android:textSize="20dp"
-                    android:textStyle="bold"></Button>
+                    android:textColor="@color/gray"
+                    ></androidx.appcompat.widget.AppCompatButton>
             </LinearLayout>
 
             <ImageView

@@ -55,7 +55,7 @@ class Custom(private val data: ArrayList<recyclerCustom>): RecyclerView.Adapter<
         layoutParams.height = 200
         holder.itemView.requestLayout()
 
-        binding.root.setOnClickListener { //기사 페이지로 이동 // 아이템뷰 나타낸다
+        binding.root.setOnClickListener { //기사 페이지로 이동, 아이템뷰 나타낸다
             Toast.makeText(binding.root.context,"${item.title}",Toast.LENGTH_SHORT).show()
             var intent = Intent(binding.root.context,ArticleActivity::class.java)
             intent.putExtra("title","${item.title}")
