@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.oceans_fisheries_project.databinding.ActivityMypageBinding
@@ -28,10 +29,8 @@ class mypageFragment : Fragment() {
         var arr = arrayListOf<recyclerCustom>()
 
         binding.settingbtn.setOnClickListener { // 세팅창으로 이동
-            parentFragmentManager.beginTransaction().replace(R.id.frag,setting_main_fragment()).commit() // 설정 프래그먼트로 이동
+            parentFragmentManager.beginTransaction().replace(R.id.frag,setting_main_fragment()).addToBackStack(null).commit() // 설정 프래그먼트로 이동
         }
-
-
 
         val auth = FirebaseAuth.getInstance()
         val currentUser = auth.currentUser
@@ -62,9 +61,13 @@ class mypageFragment : Fragment() {
                     println(error)
                 }
             })
-
         }
         return binding.root
     }
+
+
+
+
+
 
 }

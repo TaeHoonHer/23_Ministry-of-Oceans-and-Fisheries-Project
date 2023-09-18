@@ -5,6 +5,9 @@
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
         <item name="android:windowFullscreen">true</item>
 
+        <item name="android:windowBackground">@color/white</item>
+
+
     </style>
 
 

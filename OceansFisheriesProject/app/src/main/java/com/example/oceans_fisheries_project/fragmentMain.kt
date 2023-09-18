@@ -28,6 +28,13 @@ class fragmentMain : Fragment() {
     ): View? {
         val binding = MainFragmentBinding.inflate(inflater, container, false)
         var arr = arrayListOf<recyclerCustom>()
+
+        val animationView = binding.loadingAniview // 로딩 이미지 생성
+        animationView.setAnimation("shiplaoding.json")
+        animationView.loop(true)
+        animationView.playAnimation()
+
+
         var str = "popular"  // 초기 popular 로 화면 지정
         GlobalScope.launch {
             binding.btxt.text = clickTop(str).split(" ")[0]
@@ -65,7 +72,7 @@ class fragmentMain : Fragment() {
                     arr.add(data)  //데이터 리스트 캡슐화
                 }
 
-                if(isAdded){
+                if(isAdded){ // 프래그먼트가 context에 추가 되었다면
                     var adap = Custom(arr)  // 리사이클러 뷰 어뎁터 설정, 적용
                     binding.recy.apply {
                         layoutManager = LinearLayoutManager(requireContext())
@@ -73,6 +80,8 @@ class fragmentMain : Fragment() {
                         adapter = adap
                     }
                 }
+
+                animationView.visibility = View.GONE // 로딩 이미지 제거
 
             }
 

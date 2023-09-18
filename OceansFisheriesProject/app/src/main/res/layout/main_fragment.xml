@@ -146,11 +146,22 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="36dp"
                 android:background="@drawable/lastestnews"
-                app:layout_constraintBottom_toTopOf="@+id/recy"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/img"
                 android:layout_marginBottom="20dp"
                 app:layout_constraintVertical_bias="0.234"></TextView>
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/loading_aniview"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="4dp"
+                android:background="#00000000"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/latesttxt"
+                ></com.airbnb.lottie.LottieAnimationView>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recy"
