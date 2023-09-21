@@ -86,7 +86,7 @@ class Custom(private val data: ArrayList<recyclerCustom>): RecyclerView.Adapter<
             )
             val database = FirebaseDatabase.getInstance()
             val bookmarksRef = database.getReference("scrap").child(userId)
-            val query = bookmarksRef.orderByChild("title").equalTo(item.title)
+            val query = bookmarksRef.orderByChild("title").equalTo(item.title) // 중복으로 scrap에 들어가지 않게한다
             query.addListenerForSingleValueEvent(object :ValueEventListener{
                 override fun onDataChange(snapshot: DataSnapshot) {
                     if(snapshot.exists()){
