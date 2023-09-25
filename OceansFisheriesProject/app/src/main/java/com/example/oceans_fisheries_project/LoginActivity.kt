@@ -38,7 +38,6 @@ class LoginActivity : AppCompatActivity() {
             binding.idEdittxt.setText(logid)
         }
 
-
         binding.signInBtn2.setOnClickListener { // 로그인
             val email = binding.idEdittxt.text.toString()
             val pass = binding.passEdittxt.text.toString()
@@ -70,7 +69,6 @@ class LoginActivity : AppCompatActivity() {
                 else{
                     Toast.makeText(this,"로그인 오류",Toast.LENGTH_SHORT).show()
                 }
-
             }
     }
 }

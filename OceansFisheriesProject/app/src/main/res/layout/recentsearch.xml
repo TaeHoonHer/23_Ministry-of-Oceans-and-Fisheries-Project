@@ -24,7 +24,7 @@
         android:layout_height="20dp"
         android:layout_marginStart="32dp"
         android:layout_marginTop="20dp"
-        android:background="@drawable/xx"
+        android:background="@drawable/xbtn"
         app:layout_constraintStart_toEndOf="@+id/usersearchtxt"
         app:layout_constraintTop_toTopOf="parent"></androidx.appcompat.widget.AppCompatButton>
 

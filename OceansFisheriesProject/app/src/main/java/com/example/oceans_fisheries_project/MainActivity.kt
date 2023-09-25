@@ -55,6 +55,21 @@ class MainActivity : AppCompatActivity() {
         }
         onBackPressedDispatcher.addCallback(this, callback)
 
+
+        binding.sidenave.setNavigationItemSelectedListener{menuitem->
+
+            Log.d("qqq","사이드바 입력")
+            when(menuitem.itemId){
+                R.id.scronews ->  supportFragmentManager.beginTransaction()
+                    .replace(R.id.frag, mypageFragment()).addToBackStack(null)
+                    .commit()
+            }
+
+            binding.layoutDraw.closeDrawer(GravityCompat.START) // Drawer닫는다
+
+            true
+        }
+
     }
 
 
