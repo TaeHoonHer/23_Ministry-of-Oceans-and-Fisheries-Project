@@ -3,11 +3,9 @@ package com.example.oceans_fisheries_project
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.view.Gravity
 import android.view.View
 import androidx.activity.OnBackPressedCallback
 import androidx.core.view.GravityCompat
-import com.example.oceans_fisheries_project.databinding.ActivityLoginBinding
 import com.example.oceans_fisheries_project.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -64,8 +62,6 @@ class MainActivity : AppCompatActivity() {
                     .replace(R.id.frag, mypageFragment()).addToBackStack(null)
                     .commit()
             }
-
-            binding.layoutDraw.closeDrawer(GravityCompat.START) // Drawer닫는다
 
             true
         }

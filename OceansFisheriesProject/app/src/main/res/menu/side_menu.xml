@@ -9,14 +9,7 @@
         android:id="@+id/sectionnews"
         android:title="섹션뉴스"
         ></item>
-    <item
-        android:id="@+id/thenews"
-        android:title="테마별뉴스"
-        ></item>
-    <item
-        android:id="@+id/engnews"
-        android:title="외국어뉴스"
-        ></item>
+
 
 
 </menu>
