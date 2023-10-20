@@ -14,16 +14,15 @@ class FirstActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         binding = ActivityStartBinding.inflate(layoutInflater)
-
         setContentView(binding.root)
 
 
-        binding.signInBtn.setOnClickListener {
+        binding.signInBtn.setOnClickListener {  // 로그인 버튼
             var intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
         }
 
-        binding.signUpBtn.setOnClickListener {
+        binding.signUpBtn.setOnClickListener {  // 회원가입 버튼
             var intent = Intent(this, SignUpActivity::class.java)
             startActivity(intent)
         }

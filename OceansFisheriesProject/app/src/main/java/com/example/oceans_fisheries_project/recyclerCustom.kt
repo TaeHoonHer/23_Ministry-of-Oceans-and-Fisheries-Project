@@ -1,5 +1,6 @@
 package com.example.oceans_fisheries_project
 
+import android.app.Activity
 import android.app.PendingIntent.getActivity
 import android.content.Intent
 import android.graphics.drawable.Drawable
@@ -9,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.core.content.ContextCompat.startActivity
+import androidx.core.os.persistableBundleOf
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.oceans_fisheries_project.databinding.ItemBinding
@@ -25,19 +27,49 @@ data class recyclerCustom(
     var img: String,
     var title: String,
     var date: String,
-    var content : String
+    var content : String,
+    var isSelected : Boolean
 )
 class Custom(private val data: ArrayList<recyclerCustom>): RecyclerView.Adapter<Custom.CustomViewHolder>(){
     private lateinit var binding: ItemBinding
 
+
     inner class CustomViewHolder(binding: ItemBinding):RecyclerView.ViewHolder(binding.root){
+
+
         fun bind(item : recyclerCustom){
+
             binding.titletxt.text = item.title
             binding.datetxt.text = item.date
 
             Glide.with(itemView)
                 .load(item.img)
                 .into(binding.img)
+
+            binding.bookmarkbtn.setOnClickListener {
+                val position = adapterPosition
+
+                if (position != RecyclerView.NO_POSITION) {
+                    val item = data[position]
+                    Log.d("gggg","${item.title}")
+                    // 클릭된 뷰 홀더의 위치
+                    //어댑터의 데이터 목록
+
+                    if (item.isSelected) {
+                        item.isSelected = false
+
+                        binding.bookmarkbtn.setImageResource(R.drawable.iconbookmark)
+                    } else {
+                        item.isSelected = true
+
+                        binding.bookmarkbtn.setImageResource(R.drawable.iconbookmarkblack)
+                    }
+                    Log.d("gggg","${item.isSelected}")
+                    addToDatabases(item)
+                }
+            }
+
+
         }
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CustomViewHolder {
@@ -50,13 +82,11 @@ class Custom(private val data: ArrayList<recyclerCustom>): RecyclerView.Adapter<
     override fun onBindViewHolder(holder: CustomViewHolder, position: Int) {
         val item = data[position]
         holder.bind(item)
-
         val layoutParams = holder.itemView.layoutParams
         layoutParams.height = 200
         holder.itemView.requestLayout()
 
         binding.root.setOnClickListener { //기사 페이지로 이동, 아이템뷰 나타낸다
-            Toast.makeText(binding.root.context,"${item.title}",Toast.LENGTH_SHORT).show()
             var intent = Intent(binding.root.context,ArticleActivity::class.java)
             intent.putExtra("title","${item.title}")
             intent.putExtra("date","${item.date}")
@@ -66,9 +96,8 @@ class Custom(private val data: ArrayList<recyclerCustom>): RecyclerView.Adapter<
             startActivity(binding.root.context,intent,null)
         }
 
-        binding.bookmarkbtn.setOnClickListener{
-            addToDatabases(item)
-        }
+
+
     }
     fun addToDatabases(item: recyclerCustom){
         val auth = FirebaseAuth.getInstance()

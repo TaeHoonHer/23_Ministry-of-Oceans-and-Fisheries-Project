@@ -48,7 +48,7 @@ class SearchActivity : AppCompatActivity() {
                                 var img = sn.child("img_href").getValue(String::class.java)
                                 var content = sn.child("content").getValue(String::class.java)
 
-                                var data = recyclerCustom(img!!,title!!,date!!,content!!)
+                                var data = recyclerCustom(img!!,title!!,date!!,content!!,false)
                                 arr.add(data)
                             }
 

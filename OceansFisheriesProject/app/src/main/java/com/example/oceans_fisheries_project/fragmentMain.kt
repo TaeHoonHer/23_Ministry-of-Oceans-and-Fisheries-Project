@@ -6,6 +6,7 @@ import android.provider.Settings.Global
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.contentValuesOf
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -26,6 +27,7 @@ class fragmentMain : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
         val binding = MainFragmentBinding.inflate(inflater, container, false)
         var arr = arrayListOf<recyclerCustom>()
 
@@ -60,6 +62,19 @@ class fragmentMain : Fragment() {
         }
 
         var databaseReference = FirebaseDatabase.getInstance().getReference("news") // db를 불러서 리사이클러 뷰로 적용
+        databaseReference.addListenerForSingleValueEvent(object :ValueEventListener{    //데이터 필드에 isSelected가 없으면 추가 초기화 false
+            override fun onDataChange(snapshot: DataSnapshot) {
+                for(childSnapshot in snapshot.children){
+                    if(!childSnapshot.child("isSelected").exists()){
+                        childSnapshot.ref.child("isSelected").setValue(false)
+                    }
+                }
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                println(error)
+            }
+        })
         databaseReference.addListenerForSingleValueEvent(object :ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
                 for(childSnapshot in snapshot.children){
@@ -67,8 +82,9 @@ class fragmentMain : Fragment() {
                     var date = childSnapshot.child("date").getValue(String::class.java)
                     var img = childSnapshot.child("img_href").getValue(String::class.java)
                     var content = childSnapshot.child("content").getValue(String::class.java)
-
-                    var data = recyclerCustom(img!!,title!!,date!!,content!!)
+                    var selected = childSnapshot.child("isSelected").getValue(Boolean::class.java)
+                    //bool 값 추가해서 data에 넣기
+                    var data = recyclerCustom(img!!,title!!,date!!,content!!, selected!!)
                     arr.add(data)  //데이터 리스트 캡슐화
                 }
 
@@ -90,7 +106,7 @@ class fragmentMain : Fragment() {
             }
         })
 
-        binding.img.setOnClickListener{
+        binding.img.setOnClickListener{     // 메인 상단 박스 클릭시 기사 페이지 이동
             var intent = Intent(requireContext(),ArticleActivity::class.java)
 
             GlobalScope.launch {
@@ -107,7 +123,7 @@ class fragmentMain : Fragment() {
         return binding.root
         }
 
-    suspend fun clickTop(str : String): String{  // data 변경 메소드
+    suspend fun clickTop(str : String): String{  //  상단 박스 data 변경 메소드
         return suspendCoroutine {continuation ->
             val databaseReference1 = FirebaseDatabase.getInstance().getReference(str)
             databaseReference1.addListenerForSingleValueEvent(object :ValueEventListener{

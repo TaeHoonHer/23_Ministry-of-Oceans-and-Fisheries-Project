@@ -40,6 +40,8 @@ class mypageFragment : Fragment() {
             binding.nametxt.text = currentUser.displayName
 
             var databaseReference = FirebaseDatabase.getInstance().getReference("scrap").child(userId) // 파이어베이스 데이터베이스 불러온다
+
+
             databaseReference.addListenerForSingleValueEvent(object : ValueEventListener{
                 override fun onDataChange(snapshot: DataSnapshot) {
                     for(childSnapshot in snapshot.children){
@@ -47,7 +49,8 @@ class mypageFragment : Fragment() {
                         var date = childSnapshot.child("date").getValue(String::class.java)
                         var img = childSnapshot.child("img_href").getValue(String::class.java)
                         var content = childSnapshot.child("content").getValue(String::class.java)
-                        var data = recyclerCustom(img!!,title!!,date!!,content!!)
+                        //bool 값 추가해서 data에 넣기
+                        var data = recyclerCustom(img!!,title!!,date!!,content!!,false)
                         arr.add(data)
                     }
 
@@ -64,10 +67,5 @@ class mypageFragment : Fragment() {
         }
         return binding.root
     }
-
-
-
-
-
 
 }
