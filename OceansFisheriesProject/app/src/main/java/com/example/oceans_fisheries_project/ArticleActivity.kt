@@ -16,9 +16,10 @@ class ArticleActivity: AppCompatActivity() {    //기사 본문 엑티비티
         binding = ArticleFragmentBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        binding.backbtn.setOnClickListener {
+
+        }
         startArticle()
-
-
     }
 
     fun startArticle(){  // 뉴스 기사 바인딩 함수
@@ -33,6 +34,5 @@ class ArticleActivity: AppCompatActivity() {    //기사 본문 엑티비티
         Glide.with(this)    //기사 본문 이미지
             .load(img)
             .into(binding.newsImg)
-
     }
 }

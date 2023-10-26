@@ -33,17 +33,7 @@ class SearchFragment :Fragment() {
             startActivity(intent)
         }
 
-        binding.searchbar.setOnQueryTextListener(object : androidx.appcompat.widget.SearchView.OnQueryTextListener{
-            override fun onQueryTextSubmit(query: String?): Boolean {
-                Log.d("mes","제출")
-                return true
-            }
 
-            override fun onQueryTextChange(newText: String?): Boolean {
-                Log.d("mes","변경")
-                return true
-            }
-        })
         val user = FirebaseAuth.getInstance().currentUser!!.uid
         val database = FirebaseDatabase.getInstance().getReference("usersearch").child(user)
 
