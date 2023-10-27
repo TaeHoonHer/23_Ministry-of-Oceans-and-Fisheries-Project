@@ -2,6 +2,7 @@ package com.example.oceans_fisheries_project
 
 import android.app.Activity
 import android.app.PendingIntent.getActivity
+import android.content.Context
 import android.content.Intent
 import android.graphics.drawable.Drawable
 import android.util.Log
@@ -27,8 +28,7 @@ data class recyclerCustom(
     var img: String,
     var title: String,
     var date: String,
-    var content : String,
-    var isSelected : Boolean
+    var content : String
 )
 class Custom(private val data: ArrayList<recyclerCustom>): RecyclerView.Adapter<Custom.CustomViewHolder>(){
     inner class CustomViewHolder(private val binding: ItemBinding):RecyclerView.ViewHolder(binding.root){
@@ -40,30 +40,34 @@ class Custom(private val data: ArrayList<recyclerCustom>): RecyclerView.Adapter<
             Glide.with(itemView)
                 .load(item.img)
                 .into(binding.img)
+            Log.d("po","${position}")
 
-            val db = FirebaseDatabase.getInstance().getReference("news")
+            val context = itemView.context
+            val shp = context.getSharedPreferences("click", Context.MODE_PRIVATE)
+
+            val isBookmark = shp.getBoolean(item.title,false)
+
+            if(isBookmark){ // isBookmark false이면 흰 아니면 검정 표시
+                binding.bookmarkbtn.setImageResource(R.drawable.iconbookmarkblack)
+            }
+            else{
+                binding.bookmarkbtn.setImageResource(R.drawable.iconbookmark)
+            }
 
             binding.bookmarkbtn.setOnClickListener {
                 val position = adapterPosition
                 if (position != RecyclerView.NO_POSITION) {
                     val item = data[position]
-                    Log.d("gggg","${item.title}")
-                    // 클릭된 뷰 홀더의 위치
-                    //어댑터의 데이터 목록
+
+                    if (isBookmark) {  // 북마크 버튼이 눌려 있으면 흰색 변환
+                        binding.bookmarkbtn.setImageResource(R.drawable.iconbookmark)
+                        shp.edit().putBoolean(item.title,false).apply()   // shp에 item의 기사 제목, false 로 데이터 저장
+                    } else {   // 아니면  검정 변환
+                        shp.edit().putBoolean(item.title,true).apply()
+                        binding.bookmarkbtn.setImageResource(R.drawable.iconbookmarkblack)
+                    }
                     addToDatabases(item)
                 }
-
-                if (item.isSelected) {
-                    item.isSelected = false
-
-                    binding.bookmarkbtn.setImageResource(R.drawable.iconbookmark)
-
-                } else {
-                    item.isSelected = true
-                    binding.bookmarkbtn.setImageResource(R.drawable.iconbookmarkblack)
-                }
-                //
-                Log.d("gggg","${position} ${item.isSelected}")
             }
             binding.root.setOnClickListener { //기사 페이지로 이동, 아이템뷰 나타낸다
                 Log.d("logggg","${binding.root.context}")

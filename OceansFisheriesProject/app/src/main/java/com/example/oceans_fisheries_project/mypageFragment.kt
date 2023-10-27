@@ -49,8 +49,8 @@ class mypageFragment : Fragment() {
                         var date = childSnapshot.child("date").getValue(String::class.java)
                         var img = childSnapshot.child("img_href").getValue(String::class.java)
                         var content = childSnapshot.child("content").getValue(String::class.java)
-                        //bool 값 추가해서 data에 넣기
-                        var data = recyclerCustom(img!!,title!!,date!!,content!!,false)
+
+                        var data = recyclerCustom(img!!,title!!,date!!,content!!)
                         arr.add(data)
                     }
 

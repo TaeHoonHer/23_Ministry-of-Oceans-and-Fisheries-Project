@@ -3,6 +3,7 @@ package com.example.oceans_fisheries_project
 import android.content.Intent
 import android.os.Bundle
 import android.provider.Settings.Global
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -35,7 +36,6 @@ class fragmentMain : Fragment() {
         animationView.setAnimation("shiplaoding.json")
         animationView.loop(true)
         animationView.playAnimation()
-
 
         var str = "popular"  // 초기 popular 로 화면 지정
         GlobalScope.launch {
@@ -82,9 +82,8 @@ class fragmentMain : Fragment() {
                     var date = childSnapshot.child("date").getValue(String::class.java)
                     var img = childSnapshot.child("img_href").getValue(String::class.java)
                     var content = childSnapshot.child("content").getValue(String::class.java)
-                    var selected = childSnapshot.child("isSelected").getValue(Boolean::class.java)
-                    //bool 값 추가해서 data에 넣기
-                    var data = recyclerCustom(img!!,title!!,date!!,content!!, selected!!)
+
+                    var data = recyclerCustom(img!!,title!!,date!!,content!!)
                     arr.add(data)  //데이터 리스트 캡슐화
                 }
 
