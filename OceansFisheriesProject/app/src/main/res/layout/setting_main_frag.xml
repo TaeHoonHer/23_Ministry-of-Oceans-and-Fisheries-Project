@@ -61,7 +61,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:background="@drawable/iconme"
+                android:background="@drawable/user"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.498"
                 app:layout_constraintStart_toStartOf="parent"
@@ -71,8 +71,12 @@
                 android:id="@+id/userNameTxt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="25dp"
+                android:textStyle="bold"
+                android:textSize="28sp"
                 android:text="닉네임"
+
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/userImg"></TextView>
@@ -161,40 +165,10 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/option_1btn"></ImageView>
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/option_3btn"
-                android:layout_width="0dp"
-                android:layout_height="70dp"
-                android:layout_marginTop="4dp"
-                android:gravity="start|center"
-                android:text="Push Notification"
-                android:background="@color/material_on_background_disabled"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/option_2btn"
-                app:layout_constraintWidth_percent="0.8" />
 
-            <View
-                android:id="@+id/lastView"
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:layout_marginTop="4dp"
-                android:background="@color/black"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.487"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/option_3btn"
-                android:alpha="0.1"
-                app:layout_constraintWidth_percent="0.9"></View>
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="28dp"
-                android:layout_marginEnd="48dp"
-                android:background="@drawable/rightvector"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/option_2btn"></ImageView>
+
+
 
 
             <LinearLayout

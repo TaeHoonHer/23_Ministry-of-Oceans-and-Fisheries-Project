@@ -53,66 +53,17 @@
         app:layout_constraintStart_toStartOf="@id/startGuide"
         app:layout_constraintEnd_toStartOf="@id/endGuide"
         ></ImageView>
-    <TextView
-        android:id="@+id/Recenttxt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="Popular searches"
-        android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@+id/searchbar"
-        app:layout_constraintStart_toStartOf="@+id/startGuide"
-        ></TextView>
-    <TextView
-        android:id="@+id/searchbox_1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/searchbox"
-        app:layout_constraintStart_toStartOf="@id/startGuide"
-        app:layout_constraintTop_toBottomOf="@id/Recenttxt"
-        app:layout_constraintEnd_toStartOf="@+id/searchbox_2"
-        android:layout_marginTop="5dp"
-        ></TextView>
-    <TextView
-        android:id="@+id/searchbox_2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/searchbox"
-        app:layout_constraintStart_toEndOf="@id/searchbox_1"
-        app:layout_constraintTop_toBottomOf="@id/Recenttxt"
-        app:layout_constraintEnd_toStartOf="@+id/searchbox_3"
-        android:layout_marginTop="5dp"
-        ></TextView>
-    <TextView
-        android:id="@+id/searchbox_3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/searchbox"
-        app:layout_constraintStart_toEndOf="@id/searchbox_2"
-        app:layout_constraintTop_toBottomOf="@id/Recenttxt"
-        app:layout_constraintEnd_toStartOf="@+id/searchbox_4"
-        android:layout_marginTop="5dp"
-        ></TextView>
-    <TextView
-        android:id="@+id/searchbox_4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/searchbox"
-        app:layout_constraintStart_toEndOf="@id/searchbox_3"
-        app:layout_constraintTop_toBottomOf="@id/Recenttxt"
-        app:layout_constraintEnd_toStartOf="@+id/endGuide"
-        android:layout_marginTop="5dp"
-        ></TextView>
 
     <TextView
         android:id="@+id/poplutxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Recent searches"
-        app:layout_constraintTop_toBottomOf="@+id/searchbox_1"
+        app:layout_constraintTop_toBottomOf="@+id/searchbar"
         app:layout_constraintStart_toStartOf="@+id/startGuide"
         android:textStyle="bold"
-        android:layout_marginTop="3dp"
+        android:layout_marginTop="20dp"
+
         ></TextView>
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recentrcy"

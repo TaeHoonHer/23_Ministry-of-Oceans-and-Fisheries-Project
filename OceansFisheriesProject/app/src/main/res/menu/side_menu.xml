@@ -6,8 +6,12 @@
         android:title="스크랩한 뉴스"
         ></item>
     <item
-        android:id="@+id/sectionnews"
-        android:title="섹션뉴스"
+        android:id="@+id/search"
+        android:title="검색창으로 이동"
+        ></item>
+    <item
+        android:id="@+id/setting"
+        android:title="설정"
         ></item>
 
 

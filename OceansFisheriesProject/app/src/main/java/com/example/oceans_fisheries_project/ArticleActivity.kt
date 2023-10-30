@@ -2,6 +2,7 @@ package com.example.oceans_fisheries_project
 
 import android.os.Bundle
 import android.os.PersistableBundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.example.oceans_fisheries_project.databinding.ArticleFragmentBinding
@@ -17,7 +18,7 @@ class ArticleActivity: AppCompatActivity() {    //기사 본문 엑티비티
         setContentView(binding.root)
 
         binding.backbtn.setOnClickListener {
-
+            finish()
         }
         startArticle()
     }

@@ -60,16 +60,6 @@
         </androidx.appcompat.widget.Toolbar>
 
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/bellbtn"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginEnd="36dp"
-            android:background="@drawable/iconbell_"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"></androidx.appcompat.widget.AppCompatButton>
-
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/frag"
             android:layout_width="match_parent"

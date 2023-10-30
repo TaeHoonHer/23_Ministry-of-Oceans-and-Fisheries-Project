@@ -23,6 +23,11 @@ class SearchActivity : AppCompatActivity() {
         binding = SearchActivityBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        binding.backbtn.setOnClickListener {
+            Log.d("click","sss")
+            finish()
+        }
+
         binding.searchbar2.setOnQueryTextListener(object : androidx.appcompat.widget.SearchView.OnQueryTextListener{ //제출버튼 클릭시
             override fun onQueryTextSubmit(query: String?): Boolean {
                 Log.d("mmm","${query}")
@@ -34,6 +39,8 @@ class SearchActivity : AppCompatActivity() {
                     val searchqueryuser = firebaseDatabase.getReference("usersearch").child(uid)
                     val data = hashMapOf("title" to query)
                     searchqueryuser.push().setValue(data)
+
+
 
                     val database = firebaseDatabase.getReference("news")  //news에서 레퍼런스 가져온다
                     val searchquery = database.orderByChild("title")       // 제목으로 정렬한 후 검색어로 시작하는 값을 가져온다

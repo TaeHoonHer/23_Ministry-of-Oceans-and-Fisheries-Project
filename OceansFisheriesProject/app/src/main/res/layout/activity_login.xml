@@ -77,11 +77,12 @@
         android:layout_width="162dp"
         android:layout_height="50dp"
 
+        android:layout_marginTop="24dp"
+
         android:background="@drawable/signinblack"
 
-        app:layout_constraintBottom_toTopOf="@+id/forgotTxt"
         app:layout_constraintEnd_toEndOf="parent"
-
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/checkLin"></androidx.appcompat.widget.AppCompatButton>
 
@@ -117,29 +118,15 @@
     </LinearLayout>
 
 
-    <TextView
-        android:id="@+id/forgotTxt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-
-        android:text="Forgot Password?"
-        android:textSize="18dp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/forgotLin"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signInBtn_2"></TextView>
-
     <LinearLayout
         android:id="@+id/forgotLin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-
+        app:layout_constraintTop_toBottomOf="@+id/signInBtn_2"
         app:layout_constraintHorizontal_bias="0.442"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/forgotTxt">
+        app:layout_constraintStart_toStartOf="parent">
 
         <TextView
             android:id="@+id/dontAccTxt"
@@ -155,8 +142,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:text="Sign Up"
-            android:textStyle="bold"
-            ></TextView>
+            android:textStyle="bold"></TextView>
     </LinearLayout>
 
 

@@ -1,10 +1,12 @@
 package com.example.oceans_fisheries_project
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import androidx.activity.OnBackPressedCallback
+import androidx.core.content.ContextCompat
 import androidx.core.view.GravityCompat
 import com.example.oceans_fisheries_project.databinding.ActivityMainBinding
 
@@ -57,10 +59,16 @@ class MainActivity : AppCompatActivity() {
         binding.sidenave.setNavigationItemSelectedListener{menuitem->
 
             Log.d("qqq","사이드바 입력")
+            var intent = Intent(this,SearchActivity::class.java)
             when(menuitem.itemId){
                 R.id.scronews ->  supportFragmentManager.beginTransaction()
                     .replace(R.id.frag, mypageFragment()).addToBackStack(null)
                     .commit()
+                R.id.setting ->  supportFragmentManager.beginTransaction()
+                    .replace(R.id.frag, setting_main_fragment()).addToBackStack(null)
+                    .commit()
+                R.id.search -> startActivity(intent)
+
             }
 
             true

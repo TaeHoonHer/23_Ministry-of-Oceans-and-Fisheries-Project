@@ -11,6 +11,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import com.example.oceans_fisheries_project.databinding.SettingMainFragBinding
+import com.google.firebase.auth.FirebaseAuth
 
 class setting_main_fragment :Fragment() {
 
@@ -21,6 +22,14 @@ class setting_main_fragment :Fragment() {
     ): View? {
 
         var binding = SettingMainFragBinding.inflate(layoutInflater)
+
+        val auth = FirebaseAuth.getInstance()
+        val currentUser = auth.currentUser
+
+        binding.userNameTxt.text = currentUser!!.displayName
+
+
+
         binding.option1btn.setOnClickListener {
             requireActivity().supportFragmentManager.beginTransaction().replace(R.id.frag,nickname_fragment())
                 .addToBackStack(null)

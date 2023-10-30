@@ -39,25 +39,25 @@ class fragmentMain : Fragment() {
 
         var str = "popular"  // 초기 popular 로 화면 지정
         GlobalScope.launch {
-            binding.btxt.text = clickTop(str).split(" ")[0]
+            binding.btxt.text = clickTop(str)[0]
         }
 
         binding.potxt.setOnClickListener {  // 버튼 클릭에따른 메인 박스 텍스트 변경
             str = "popular"
             GlobalScope.launch {
-                binding.btxt.text = clickTop(str).split(" ")[0] // clickTop 함수 리턴 1인덱스
+                binding.btxt.text = clickTop(str)[0] // clickTop 함수 리턴 1인덱스
             }
         }
         binding.lotxt.setOnClickListener {
             str = "logistics"
             GlobalScope.launch {
-                binding.btxt.text = clickTop(str).split(" ")[0]
+                binding.btxt.text = clickTop(str)[0]
             }
         }
         binding.retxt.setOnClickListener {
             str = "recent"
             GlobalScope.launch {
-                binding.btxt.text = clickTop(str).split(" ")[0]
+                binding.btxt.text = clickTop(str)[0]
             }
         }
 
@@ -109,7 +109,8 @@ class fragmentMain : Fragment() {
             var intent = Intent(requireContext(),ArticleActivity::class.java)
 
             GlobalScope.launch {
-                var (title, date, img, content) = clickTop(str).split(" ")
+
+                var (title, date, img, content) = clickTop(str)
                 intent.putExtra("title","${title}")
                 intent.putExtra("date","${date}")
                 intent.putExtra("img_href","${img}")
@@ -122,26 +123,32 @@ class fragmentMain : Fragment() {
         return binding.root
         }
 
-    suspend fun clickTop(str : String): String{  //  상단 박스 data 변경 메소드
+    suspend fun clickTop(str : String): MutableList<String>{  //  상단 박스 data 변경 메소드
         return suspendCoroutine {continuation ->
             val databaseReference1 = FirebaseDatabase.getInstance().getReference(str)
             databaseReference1.addListenerForSingleValueEvent(object :ValueEventListener{
                 override fun onDataChange(snapshot: DataSnapshot) {
-                    var ret = ""
+                    val data = mutableListOf<String>()
                     for(ch in snapshot.children){
                         var title = ch.child("title").getValue(String::class.java)
                         var date = ch.child("date").getValue(String::class.java)
                         var img = ch.child("img_href").getValue(String::class.java)
                         var content = ch.child("content").getValue(String::class.java)
 
-                        ret = "${title} ${date} ${img} ${content}"
+                        Log.d("testtt","${title}")
+
+                        data.add("${title}")
+                        data.add("${date}")
+                        data.add("${img}")
+                        data.add("${content}")
+
                     }
-                    continuation.resume(ret)
+                    continuation.resume(data)
                 }
                 override fun onCancelled(error: DatabaseError) {
                     println(error)
 
-                    continuation.resume("")
+                    continuation.resume(mutableListOf())
                 }
             })
         }
