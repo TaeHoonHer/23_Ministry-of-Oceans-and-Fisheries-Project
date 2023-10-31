@@ -51,7 +51,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/datetxt"
-            android:layout_marginLeft="112dp"
+            android:layout_marginLeft="70dp"
             android:layout_marginTop="-11dp"
             android:layout_toRightOf="@id/datetxt"
             android:src="@drawable/iconbookmark"

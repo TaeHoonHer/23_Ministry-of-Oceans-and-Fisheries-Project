@@ -5,39 +5,23 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/startGuide"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.03"
-        ></androidx.constraintlayout.widget.Guideline>
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/endGuide"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.97"
-        ></androidx.constraintlayout.widget.Guideline>
-
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/backbtn"
         android:layout_width="20dp"
         android:layout_height="25dp"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="40dp"
         android:background="@drawable/backvector"
         app:layout_constraintEnd_toStartOf="@+id/searchbar2"
-        app:layout_constraintStart_toStartOf="@id/startGuide"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"></androidx.appcompat.widget.AppCompatButton>
 
     <androidx.appcompat.widget.SearchView
         android:id="@+id/searchbar2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="24dp"
         android:background="@drawable/searchbar_2"
-        app:layout_constraintEnd_toStartOf="@id/endGuide"
+
         app:layout_constraintStart_toEndOf="@+id/backbtn"
         app:layout_constraintTop_toTopOf="parent"></androidx.appcompat.widget.SearchView>
 
@@ -47,11 +31,9 @@
         android:layout_height="0dp"
         android:layout_marginTop="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/endGuide"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/startGuide"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/searchbar2"
-        app:layout_constraintVertical_bias="0.0"
         tools:listitem="@layout/item"></androidx.recyclerview.widget.RecyclerView>
 
 

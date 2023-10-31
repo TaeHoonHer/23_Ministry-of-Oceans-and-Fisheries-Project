@@ -5,6 +5,22 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/startGuide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.03"
+        ></androidx.constraintlayout.widget.Guideline>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/endGuide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.97"
+        app:layout_constraintEnd_toStartOf="parent"
+        ></androidx.constraintlayout.widget.Guideline>
 
     <ImageView
         android:id="@+id/profileimg"
@@ -68,14 +84,12 @@
         android:id="@+id/mypage_rcyc"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:padding="10dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/endGuide"
+        app:layout_constraintStart_toStartOf="@+id/startGuide"
         app:layout_constraintTop_toBottomOf="@id/arttxt"
-        app:layout_constraintVertical_bias="0.0"
+
         tools:listitem="@layout/item"></androidx.recyclerview.widget.RecyclerView>
 
 

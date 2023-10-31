@@ -34,7 +34,7 @@ class SignUpActivity: AppCompatActivity() {
             if(binding.signNameEdittxt.text.isEmpty()) { //이름 없을시
                 Toast.makeText(this, "이름을 입력하세요", Toast.LENGTH_SHORT).show()
             } else if (!binding.signpassCheckEdittxt.text.toString().equals(password)) { //비밀번호 다를시
-                Toast.makeText(this, "비밀번호를 확인해주세요", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "비밀번호를 확인해주세요 6자리 이상!", Toast.LENGTH_SHORT).show()
             } else {
                 signup(email, password,name)  // 이름 추가
             }

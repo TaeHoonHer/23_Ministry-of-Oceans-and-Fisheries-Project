@@ -3,7 +3,10 @@ package com.example.oceans_fisheries_project
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.inputmethod.InputMethodManager
 import android.widget.SearchView
+import android.widget.Toast
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.oceans_fisheries_project.databinding.SearchActivityBinding
 import com.google.firebase.auth.FirebaseAuth
@@ -23,10 +26,13 @@ class SearchActivity : AppCompatActivity() {
         binding = SearchActivityBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        Toast.makeText(this,"검색하려면 돋보기를 클릭하세요!",Toast.LENGTH_SHORT).show()
+
         binding.backbtn.setOnClickListener {
-            Log.d("click","sss")
             finish()
         }
+
+
 
         binding.searchbar2.setOnQueryTextListener(object : androidx.appcompat.widget.SearchView.OnQueryTextListener{ //제출버튼 클릭시
             override fun onQueryTextSubmit(query: String?): Boolean {
